@@ -2,7 +2,7 @@
   <main class="w-full">
     <!-- hero section  -->
     <section
-      class="container mx-auto min-h-screen w-full flex flex-wrap items-center pt-5"
+      class="container mx-auto min-h-screen w-full flex flex-wrap items-center pt-5 px-5"
     >
       <div class="w-full md:w-1/2">
         <h1
@@ -47,7 +47,7 @@
     <!-- end hero secton -->
 
     <!-- about section -->
-    <section class="container mx-auto min-h-screen w-full flex flex-wrap">
+    <section id="about" class="container mx-auto w-full flex flex-wrap px-5">
       <div class="w-7/12">
         <h2 class="font-semibold text-2xl mb-5 text-slate-800">Siapa Kami</h2>
         <p class="text-slate-700">
