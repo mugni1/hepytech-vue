@@ -1,8 +1,19 @@
 <template>
   <main class="w-full overflow-x-hidden overflow-y-hidden">
     <section class="pt-20 container mx-auto px-5">
+      <h1
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        class="text-3xl xl:text-4xl font-bold pt-5 mb-5 pb-2 text-slate-800 border-b"
+      >
+        Portfolio
+      </h1>
       <!-- navigasi portfolio  -->
-      <div class="w-full py-5 flex flex-wrap justify-between gap-5">
+      <div
+        class="w-full pb-5 flex flex-wrap justify-between gap-5"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
         <button
           class="border px-5 py-2 rounded-full shadow-md bg-purple-700 text-white md:w-2/12 w-5/12 hover:scale-95 transition-all hover:shadow-sm hover:bg-purple-900"
           @click="all()"
@@ -37,6 +48,8 @@
       <div
         class="p-5 w-full md:w-4/12"
         v-for="(item, index) in listPortfolioFilter"
+        data-aos="fade-right"
+        data-aos-duration="1000"
       >
         <div class="border shadow-md rounded-xl flex flex-wrap">
           <!-- card image  -->
