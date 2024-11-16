@@ -4,7 +4,7 @@
       <h1
         data-aos="fade-right"
         data-aos-duration="1000"
-        class="text-3xl xl:text-4xl font-bold pt-5 mb-5 pb-2 text-slate-800 border-b"
+        class="text-2xl font-bold pt-5 mb-5 pb-2 text-slate-800 text-center"
       >
         Portfolio
       </h1>

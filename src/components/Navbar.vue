@@ -15,7 +15,7 @@
           <li><a href="/#about">About</a></li>
           <li><router-link to="/portfolio">Portfolio</router-link></li>
           <li><router-link to="/career">Career</router-link></li>
-          <li><router-link to="on-pinia">HepyNews</router-link></li>
+          <li><router-link to="/hepynews">HepyNews</router-link></li>
         </ul>
       </div>
       <button
