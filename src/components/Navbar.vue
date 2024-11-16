@@ -21,7 +21,7 @@
       <button
         class="py-2 px-5 border rounded-full shadow-md font-semibold bg-purple-700 text-white hover:scale-95 hover:bg-purple-900 hover:shadow-sm"
       >
-        Contac US
+        <a href="/#contacus">Contac US</a>
       </button>
     </nav>
   </header>

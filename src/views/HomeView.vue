@@ -204,7 +204,7 @@
 
     <!-- contac us  -->
     <section
-      id="contac"
+      id="contacus"
       class="overflow-hidden w-full flex items-center mb-20 pt-24"
     >
       <div
