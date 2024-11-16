@@ -19,7 +19,7 @@
         data-aos-duration="1000"
         v-for="(item, index) in listNewsFilter"
       >
-        <router-link :to="'/news/' + item.id + '/detail'">
+        <router-link :to="'/hepynews/' + item.id + '/detail'">
           <div
             class="w-full border rounded-xl shadow-md flex overflow-hidden group"
           >
