@@ -21,6 +21,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes: routes,
+  //untuk hash / id
+  scrollBehavior(to) {
+    if (to.hash) {
+      return {
+        el: to.hash, // Scroll ke elemen dengan ID yang sesuai
+        behavior: "smooth", // Gulir mulus
+      };
+    }
+    return { top: 0 }; // Default scroll ke atas jika hash tidak ada
+  },
 });
 
 export default router;
