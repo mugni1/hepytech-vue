@@ -2,15 +2,14 @@
   <main class="w-full pt-24 overflow-hidden">
     <section class="container mx-auto px-5 flex flex-wrap">
       <!-- column 1  -->
-      <div class="w-full md:w-8/12 mb-5">
+      <div class="w-full md:w-8/12 mb-5" v-for="(item, index) in newsDetail">
         <!-- judul  -->
         <h2 class="font-bold text-purple-700 text-2xl mb-2">
-          Contoh Judul
+          {{ item.title }}
         </h2>
         <h5 class="text-slate-600 text-sm mb-2">
-          HepyTech | 22-06-2024, 12:00 WIB
+          {{ item.author }} | {{ item.date }}, 12:00 WIB
         </h5>
-        <h4 class="font-semibold text-slate-700 text-sm"></h4>
         <!--end judul  -->
 
         <!-- image new  -->
@@ -30,17 +29,18 @@
 
         <!-- text news  -->
         <div class="text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          provident expedita sit optio nam? Excepturi unde autem culpa accusamus
-          sit perferendis, non vero deleniti labore facilis corporis voluptatem
-          sunt enim qui maiores at fugit ipsam ducimus mollitia animi corrupti
-          magnam voluptates magni. Ut nemo similique culpa officia, iste aut
-          modi! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-          molestias ex possimus fuga quas magnam excepturi eum facilis iusto!
-          Placeat dolor similique provident hic maxime nam voluptatum rem
-          asperiores assumenda numquam, vitae eius reprehenderit reiciendis
-          molestiae est amet, soluta porro expedita? Animi eaque excepturi optio
-          asperiores blanditiis unde eveniet deleniti?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+          temporibus molestiae nulla maxime vero labore consequatur aut
+          corporis, laudantium praesentium sunt, cumque tempora modi incidunt
+          atque dolor placeat rerum nobis rem. Blanditiis ullam rem quas qui
+          voluptates nisi, temporibus nobis aliquid iure quaerat porro in velit
+          maiores doloremque fugiat vitae. Quaerat architecto earum, et deserunt
+          cumque omnis magni! Iure praesentium accusamus porro dolorum eaque
+          soluta quibusdam expedita quaerat ullam eos accusantium veniam
+          deleniti, sed perferendis labore magni autem dolores et, ipsam laborum
+          esse? Beatae, rerum voluptas? Labore accusantium ipsa, reiciendis
+          expedita commodi ad debitis, maxime eaque eligendi deserunt repellat
+          suscipit.
         </div>
         <!-- end text news -->
       </div>
@@ -181,7 +181,7 @@ export default {
     this.listNewsFilter = this.listNews.filter((item) =>
       item.text.length > textLimit
         ? (item.text = item.text.substring(0, textLimit) + "...")
-        : (item.text = "memew")
+        : (item.text = item.text)
     );
 
     this.filterId();
@@ -193,6 +193,14 @@ export default {
       this.listNewsAfterFilterId = this.listNewsFilter.filter(
         (item) => item.id != newsId
       );
+      this.newsDetailAfterClick();
+    },
+    newsDetailAfterClick() {
+      this.newsDetail = this.listNews.filter(
+        (item) => item.id == this.$route.params.id
+      );
+      console.log(this.newsDetail);
+      console.log(this.listNews);
     },
   },
 };
