@@ -126,13 +126,21 @@
       <!-- box card -->
     </section>
     <!-- list news  -->
+
+    <!-- Navbar  -->
+    <Footer />
+    <!-- end Navbar  -->
   </main>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
 import { useNews } from "@/stores/news";
 
 export default {
+  components: {
+    Footer,
+  },
   setup() {
     return {
       useNews,

@@ -213,5 +213,19 @@
         </button>
       </div>
     </section>
+
+    <!-- Navbar  -->
+    <Footer />
+    <!-- end Navbar  -->
   </main>
 </template>
+
+<script>
+import Footer from "@/components/Footer.vue";
+
+export default {
+  components: {
+    Footer,
+  },
+};
+</script>
