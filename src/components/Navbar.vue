@@ -16,11 +16,41 @@
       <!-- nav link item -->
       <div class="text-base font-semibold hidden md:block">
         <ul class="flex gap-5 text-slate-800">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/#about">About</router-link></li>
-          <li><router-link to="/portfolio">Portfolio</router-link></li>
-          <li><router-link to="/career">Career</router-link></li>
-          <li><router-link to="/hepynews">HepyNews</router-link></li>
+          <li>
+            <router-link
+              class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
+              to="/"
+              >Home</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
+              to="/#about"
+              >About</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
+              to="/portfolio"
+              >Portfolio</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
+              to="/career"
+              >Career</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
+              to="/hepynews"
+              >HepyNews</router-link
+            >
+          </li>
         </ul>
       </div>
       <!-- end nav link item  -->
@@ -58,42 +88,42 @@
         <ul class="md:flex gap-5 text-slate-800">
           <li>
             <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block transition-all"
               to="/"
               >Home</router-link
             >
           </li>
           <li>
             <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block transition-all"
               to="/#about"
               >About</router-link
             >
           </li>
           <li>
             <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block transition-all"
               to="/portfolio"
               >Portfolio</router-link
             >
           </li>
           <li>
             <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block transition-all"
               to="/career"
               >Career</router-link
             >
           </li>
           <li>
             <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block transition-all"
               to="/hepynews"
               >HepyNews</router-link
             >
           </li>
           <li>
             <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block transition-all"
               to="/#contacus"
               >Contac Us</router-link
             >
