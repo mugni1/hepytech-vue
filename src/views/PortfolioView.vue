@@ -1,5 +1,6 @@
 <template>
   <main class="w-full overflow-x-hidden overflow-y-hidden">
+    <!-- navigasi bar  -->
     <section class="pt-20 container mx-auto px-5">
       <h1
         data-aos="fade-down"
@@ -16,35 +17,36 @@
       >
         <button
           class="border px-5 py-2 rounded-full shadow-md bg-purple-700 text-white md:w-2/12 w-5/12 hover:scale-95 transition-all hover:shadow-sm hover:bg-purple-900"
-          @click="all()"
+          @click="usePortfolioStore().all()"
         >
           All
         </button>
         <button
           class="border px-5 py-2 rounded-full shadow-md bg-purple-700 text-white md:w-2/12 w-5/12 hover:scale-95 transition-all hover:shadow-sm hover:bg-purple-900"
-          @click="onlyWebsite()"
+          @click="usePortfolioStore().onlyWebsite()"
         >
           Website
         </button>
         <button
           class="border px-5 py-2 rounded-full shadow-md bg-purple-700 text-white md:w-2/12 w-5/12 hover:scale-95 transition-all hover:shadow-sm hover:bg-purple-900"
-          @click="onlyMobile()"
+          @click="usePortfolioStore().onlyMobile()"
         >
           Mobile
         </button>
         <button
           class="border px-5 py-2 rounded-full shadow-md bg-purple-700 text-white md:w-2/12 w-5/12 hover:scale-95 transition-all hover:shadow-sm hover:bg-purple-900"
-          @click="onlyDekstop()"
+          @click="usePortfolioStore().onlyDekstop()"
         >
           Desktop
         </button>
       </div>
       <!-- navigasi portfolio  -->
     </section>
+    <!-- end navigasi bar  -->
 
     <!-- Menampilkan Loading Indicator -->
     <div
-      v-if="useListPortfolio().loading"
+      v-if="usePortfolioStore().loading"
       class="flex justify-center items-start w-full py-10"
     >
       <svg
@@ -61,13 +63,13 @@
 
     <!-- list portfolio  -->
     <section
-      v-if="showList"
+      v-if="usePortfolioStore().showList"
       class="container mx-auto w-full flex flex-wrap mb-10"
     >
       <!-- box card -->
       <div
         class="p-5 w-full md:w-4/12"
-        v-for="(item, index) in useListPortfolio().listPortfolio"
+        v-for="(item, index) in usePortfolioStore().listPortfolio"
         data-aos="fade-right"
         data-aos-duration="1000"
       >
@@ -115,8 +117,8 @@
         data-aos="fade-up"
         data-aos-duration="700"
         v-if="
-          useListPortfolio().listPortfolio.length < 1 &&
-          useListPortfolio().loading == false
+          usePortfolioStore().listPortfolio.length < 1 &&
+          usePortfolioStore().loading == false
         "
         class="w-full mx-5 flex items-center justify-center"
       >
@@ -133,7 +135,7 @@
       <!-- box card -->
       <div
         class="p-5 w-full md:w-4/12"
-        v-for="(item, index) in listPortfolioFilter"
+        v-for="(item, index) in usePortfolioStore().listPortfolioFilter"
         data-aos="fade-right"
         data-aos-duration="1000"
       >
@@ -179,8 +181,8 @@
       <!-- box no data  -->
       <div
         v-if="
-          useListPortfolio().listPortfolio.length < 1 &&
-          useListPortfolio().loading == false
+          usePortfolioStore().listPortfolio.length < 1 &&
+          usePortfolioStore().loading == false
         "
         class="w-full mx-5 flex items-center justify-center"
       >
@@ -200,13 +202,12 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
-import { useListPortfolio } from "@/stores/listPortfolio";
-import axios from "axios";
+import { usePortfolioStore } from "@/stores/portfolio";
 
 export default {
   setup() {
     return {
-      useListPortfolio,
+      usePortfolioStore,
     };
   },
   components: {
@@ -214,39 +215,11 @@ export default {
   },
   data() {
     return {
-      loadingListPortfolio: true,
-      listPortfolio: [],
-      listPortfolioFilter: null,
-      showList: true,
       urlImage: "http://localhost/hepytech-api/public/storage/img/",
     };
   },
   mounted() {
-    useListPortfolio().getListPort();
-    this.listPortfolioFilter = useListPortfolio().listPortfolio;
-  },
-  methods: {
-    all() {
-      this.showList = true;
-    },
-    onlyWebsite() {
-      this.listPortfolioFilter = useListPortfolio().listPortfolio.filter(
-        (item) => item.categori.name == "website"
-      );
-      this.showList = false;
-    },
-    onlyMobile() {
-      this.listPortfolioFilter = useListPortfolio().listPortfolio.filter(
-        (item) => item.categori.name == "mobile"
-      );
-      this.showList = false;
-    },
-    onlyDekstop() {
-      this.listPortfolioFilter = useListPortfolio().listPortfolio.filter(
-        (item) => item.categori.name == "desktop"
-      );
-      this.showList = false;
-    },
+    usePortfolioStore().getListPort();
   },
 };
 </script>
