@@ -1,6 +1,10 @@
 <template>
   <main class="w-full pt-20">
-    <section class="container mx-auto px-5 w-full">
+    <section
+      data-aos="fade-down"
+      data-aos-duration="600"
+      class="container mx-auto px-5 w-full"
+    >
       <!-- title  -->
       <h1
         class="font-bold text-2xl py-2 my-3 px-5 text-white rounded-xl shadow-md bg-purple-700 inline-block"
