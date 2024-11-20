@@ -12,6 +12,7 @@
       </div>
       <!-- end brand  -->
 
+      <!-- FOR MD ++++  -->
       <!-- nav link item -->
       <div class="text-base font-semibold hidden md:block">
         <ul class="flex gap-5 text-slate-800">
@@ -31,21 +32,28 @@
         <router-link to="/#contacus">Contac US</router-link>
       </button>
       <!-- end contac us only md  -->
+      <!-- FOR MD ++++  -->
 
+      <!-- FOR MOBILE  -->
       <!-- nav link item -->
       <div
         v-if="navLink"
         data-aos="fade-left"
-        class="text-base md:hidden font-semibold h-screen w-1/2 top-0 absolute right-0 bg-white"
+        class="text-base md:hidden font-semibold h-screen w-6/12 top-0 absolute right-0 bg-white"
       >
         <button
           @click="navLinkHidden()"
-          class="h-20 w-full flex items-center justify-end md:hidden"
+          class="h-20 w-full flex items-center justify-end md:hidden text-slate-500"
         >
-          <img
-            class="h-11 w-11 mx-5"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARlJREFUSEvt1M8qxUEYxvHP2SrZEMpCUlyD/Cls5TZkq9yJzsZKuQG5AmSFbP3JmiVX4PfWqF/6nZlx6mRzZjm98zzv8513pmfEqzdifWODIuF/R3SMM7wPaHUFGzgdFCWX4BAneMFmh8kyrjGHfVx0meQM4mAIhNBr6vQnyRJuMYtHbOHrrwZR32UyUSseAjWXPI+rlOQJU8n4vkm4g8/cKNUYxPmFhGsxiWWxtA1rDYJ1MA/2sR6aVNul7msRhfhNQvScEMXeXbO/WzIpJWh3/oY1TLbGs5gkZ9Al/pEQxegGspkSrpzBQTPnfQSWmPPfr3k1JZnGHi6HeQdHOM98FWGyPuxXUfwpawpKl1yjka0ZGxQRjhzRNxi0NBmpupZSAAAAAElFTkSuQmCC"
-          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="h-11 w-11 mx-5 fill-current"
+          >
+            <path
+              d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+            ></path>
+          </svg>
         </button>
         <ul class="md:flex gap-5 text-slate-800">
           <li>
@@ -83,10 +91,16 @@
               >HepyNews</router-link
             >
           </li>
+          <li>
+            <router-link
+              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full block"
+              to="/#contacus"
+              >Contac Us</router-link
+            >
+          </li>
         </ul>
       </div>
       <!-- end nav link item  -->
-
       <!-- burger for mobile  -->
       <div
         @click="navLinkShow()"
@@ -101,6 +115,7 @@
         </svg>
       </div>
       <!-- burger for mobile  -->
+      <!-- END FOR MOBILE  -->
     </nav>
   </header>
 </template>
