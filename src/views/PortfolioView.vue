@@ -112,21 +112,21 @@
       </div>
       <!-- box card -->
 
-      <!-- box no data  -->
+      <!-- No data from api -->
       <div
-        data-aos="fade-up"
-        data-aos-duration="700"
         v-if="
           usePortfolioStore().listPortfolio.length < 1 &&
           usePortfolioStore().loading == false
         "
-        class="w-full mx-5 flex items-center justify-center"
+        data-aos="zoom-in"
+        data-aos-duration="700"
+        class="container mx-auto p-5 flex justify-center font-bold text-2xl text-red-600"
       >
-        <h1 class="font-bold text-2xl text-slate-800 my-10">
-          Not Have Portfolio
+        <h1 class="border w-full text-center py-10 rounded-2xl shadow-md">
+          No Have Portfolio
         </h1>
       </div>
-      <!-- end box no data  -->
+      <!-- No data from api -->
     </section>
     <!-- end portfolio  -->
 
@@ -178,19 +178,21 @@
       </div>
       <!-- box card -->
 
-      <!-- box no data  -->
+      <!-- No data from api -->
       <div
         v-if="
           usePortfolioStore().listPortfolio.length < 1 &&
           usePortfolioStore().loading == false
         "
-        class="w-full mx-5 flex items-center justify-center"
+        data-aos="zoom-in"
+        data-aos-duration="700"
+        class="container mx-auto p-5 flex justify-center font-bold text-2xl text-red-600"
       >
-        <h1 class="font-bold text-2xl text-slate-800 my-10">
-          Not Have Portfolio
+        <h1 class="border w-full text-center py-10 rounded-2xl shadow-md">
+          No Have Portfolio
         </h1>
       </div>
-      <!-- end box no data  -->
+      <!-- No data from api -->
     </section>
     <!-- end portfolio  -->
 
