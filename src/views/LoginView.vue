@@ -5,7 +5,9 @@
       class="p-5 border w-full flex flex-wrap md:w-3/12 shadow-md rounded-xl"
     >
       <!-- title  -->
-      <h2 class="text-center font-bold text-2xl w-full my-5">Login</h2>
+      <h2 class="text-center font-bold text-2xl w-full my-5 text-purple-800">
+        Login Admin
+      </h2>
       <!-- end title -->
       <!-- email  -->
       <div class="w-full flex flex-wrap my-1">
@@ -25,7 +27,7 @@
           type="email"
           name=""
           id=""
-          class="w-full border p-1 rounded-md"
+          class="w-full border p-1 rounded-md outline-none"
           placeholder="abankr342@gmail.com"
           v-model="inputEmail"
         />
@@ -42,7 +44,8 @@
             name=""
             id=""
             v-model="inputPassword"
-            class="w-full border py-1 ps-1 pe-8 rounded-md absolute"
+            class="w-full border py-1 ps-1 pe-8 rounded-md absolute outline-none"
+            placeholder="contoh123"
           />
           <button
             @click="showPw()"
@@ -61,7 +64,7 @@
             name=""
             id=""
             v-model="inputPassword"
-            class="w-full border py-1 ps-1 pe-8 rounded-md absolute"
+            class="w-full border py-1 ps-1 pe-8 rounded-md absolute outline-none"
           />
           <div
             @click="hidePw()"
@@ -80,10 +83,11 @@
       <button
         v-if="statusSubmit == true"
         @click="submit()"
-        class="w-full py-2 bg-green-500 font-bold rounded-xl text-white hover:bg-green-700"
-        :disabled="!statusSubmit"
+        class="w-full py-2 bg-purple-700 font-bold rounded-xl text-white hover:bg-purple-900 active:ring-4 ring-purple-600"
+        :disabled="loadingSubmit"
       >
-        Submit
+        <span v-if="loadingSubmit == true">Loading</span>
+        <span v-if="loadingSubmit == false">Submit</span>
       </button>
       <!-- end btn  -->
       <!-- btn  -->
@@ -93,14 +97,23 @@
         class="w-full py-2 bg-slate-500 font-bold rounded-xl text-white hover:bg-slate-700"
         :disabled="!statusSubmit"
       >
-        Submit
+        <span v-if="loadingSubmit == true">Loading</span>
+        <span v-if="loadingSubmit == false">Submit</span>
       </button>
       <!-- end btn  -->
+
+      <!-- back to home  -->
+      <router-link to="/" class="mx-auto mt-3 text-purple-600"
+        >Back to home</router-link
+      >
+      <!-- end back to home  -->
     </div>
   </section>
 </template>
 
 <script>
+import axios from "axios";
+import swal from "sweetalert";
 export default {
   data() {
     return {
@@ -109,6 +122,7 @@ export default {
       inputEmail: null,
       inputPassword: null,
       statusSubmit: false,
+      loadingSubmit: false,
     };
   },
 
@@ -120,7 +134,39 @@ export default {
       this.typePassword = true;
     },
     submit() {
-      return console.log("suscces");
+      this.loadingSubmit = true;
+      axios({
+        method: "post",
+        url: "http://localhost:8000/api/login/auth",
+        data: {
+          email: this.inputEmail,
+          password: this.inputPassword,
+        },
+      })
+        .then((response) => {
+          // show alert
+          swal({
+            title: "Login Succesfully ",
+            text: `Welcome to dashboar ${response.data.data.name}`,
+            icon: "success",
+          });
+          // set local storage
+          localStorage.setItem("token", response.data.data.token);
+          localStorage.setItem("name", response.data.data.name);
+          localStorage.setItem("email", response.data.data.email);
+          localStorage.setItem("role_id", response.data.data.role_id);
+        })
+        .catch((error) => {
+          // show alert
+          swal({
+            title: "Error",
+            text: "Incorrect email or password",
+            icon: "error",
+          });
+        })
+        .finally(() => {
+          this.loadingSubmit = false;
+        });
     },
   },
   watch: {
