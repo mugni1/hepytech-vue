@@ -6,6 +6,7 @@ import CareerView from "@/views/CareerView.vue";
 import HepyNewsView from "@/views/HepyNewsView.vue";
 import HepyNewsDetail from "@/views/HepyNewsDetail.vue";
 import LoginView from "@/views/LoginView.vue";
+import AdminDashboardView from "@/views/AdminDashboardView.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -20,6 +21,11 @@ const routes = [
 
   // FOR ADMIN
   { path: "/login", name: "login", component: LoginView },
+  {
+    path: "/admin/dashboard",
+    name: "adminDashboard",
+    component: AdminDashboardView,
+  },
 ];
 
 const router = createRouter({

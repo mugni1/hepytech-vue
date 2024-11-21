@@ -112,8 +112,10 @@
 </template>
 
 <script>
+import router from "@/router";
 import axios from "axios";
 import swal from "sweetalert";
+import AdminDashboardView from "./AdminDashboardView.vue";
 export default {
   data() {
     return {
@@ -149,6 +151,8 @@ export default {
             title: "Login Succesfully ",
             text: `Welcome to dashboar ${response.data.data.name}`,
             icon: "success",
+          }).finally(() => {
+            router.push({ name: "adminDashboard" });
           });
           // set local storage
           localStorage.setItem("token", response.data.data.token);
