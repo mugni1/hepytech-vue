@@ -5,7 +5,7 @@
       class="p-5 border w-full flex flex-wrap md:w-3/12 shadow-md rounded-xl"
     >
       <!-- title  -->
-      <h2 class="text-center font-bold text-2xl w-full my-5 text-purple-800">
+      <h2 class="text-center font-bold text-2xl w-full my-5 text-purple-700">
         Login Admin
       </h2>
       <!-- end title -->
@@ -36,7 +36,7 @@
 
       <!-- password  -->
       <div class="w-full flex flex-wrap mt-1 mb-5">
-        <label for="" class="font-semibold">Password</label>
+        <label for="" class="font-semibold text-slate-800">Password</label>
         <!-- type password  -->
         <div v-if="typePassword" class="w-full relative h-8">
           <input
