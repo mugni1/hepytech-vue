@@ -5,6 +5,7 @@ import PortfolioView from "@/views/PortfolioView.vue";
 import CareerView from "@/views/CareerView.vue";
 import HepyNewsView from "@/views/HepyNewsView.vue";
 import HepyNewsDetail from "@/views/HepyNewsDetail.vue";
+import LoginView from "@/views/LoginView.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -16,6 +17,9 @@ const routes = [
     name: "hepynewsDetail",
     component: HepyNewsDetail,
   },
+
+  // FOR ADMIN
+  { path: "/login", name: "login", component: LoginView },
 ];
 
 const router = createRouter({
