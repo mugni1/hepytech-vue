@@ -1,5 +1,7 @@
 <template>
   <main class="w-full overflow-x-hidden">
+    <Navbar />
+
     <!-- hero section  -->
     <section
       class="container mx-auto w-full flex flex-wrap items-center pt-28 md:pt-20 px-5"
@@ -549,10 +551,12 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   components: {
     Footer,
+    Navbar,
   },
   methods: {
     contacSubmit() {

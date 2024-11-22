@@ -1,4 +1,8 @@
 <template>
+  <!-- Navbar  -->
+  <Navbar />
+  <!-- End Navbar  -->
+
   <main class="w-full pt-24 overflow-hidden">
     <section class="container mx-auto px-5 flex flex-wrap">
       <!-- column 1  -->
@@ -138,10 +142,21 @@
       <!--end column 2  -->
     </section>
   </main>
+
+  <!-- Footer  -->
+  <Footer />
+  <!-- End Footer  -->
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
+import Navbar from "@/components/Navbar.vue";
+
 export default {
+  components: {
+    Navbar,
+    Footer,
+  },
   data() {
     return {
       listNews: [

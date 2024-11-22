@@ -1,4 +1,8 @@
 <template>
+  <!-- Navbar  -->
+  <Navbar />
+  <!-- End Navbar -->
+
   <main class="pt-20 w-full">
     <section id="about" class="overflow-hidden w-full flex">
       <!-- {{-- Container --}} -->
@@ -222,10 +226,12 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   components: {
     Footer,
+    Navbar,
   },
 };
 </script>

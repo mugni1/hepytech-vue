@@ -1,5 +1,7 @@
 <template>
   <main class="w-full overflow-x-hidden overflow-y-hidden">
+    <Navbar />
+
     <!-- navigasi bar  -->
     <section class="pt-20 container mx-auto px-5">
       <h1
@@ -204,6 +206,7 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
+import Navbar from "@/components/Navbar.vue";
 import { usePortfolioStore } from "@/stores/portfolio";
 
 export default {
@@ -214,6 +217,7 @@ export default {
   },
   components: {
     Footer,
+    Navbar,
   },
   data() {
     return {

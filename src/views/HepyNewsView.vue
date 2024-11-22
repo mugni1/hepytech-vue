@@ -1,4 +1,7 @@
 <template>
+  <!-- Navbar  -->
+  <Navbar />
+  <!-- End Navbar -->
   <main class="w-full pt-20">
     <section
       data-aos="fade-down"
@@ -135,11 +138,13 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
+import Navbar from "@/components/Navbar.vue";
 import { useNews } from "@/stores/news";
 
 export default {
   components: {
     Footer,
+    Navbar,
   },
   setup() {
     return {
