@@ -1,5 +1,151 @@
 <template>
-  <section class="mt-20">
-    <h1>Ini Dashboard Admin</h1>
+  <section class="flex w-full min-h-screen flex-wrap bg-slate-100">
+    <!-- SIDE BAR  -->
+    <div class="w-2/12 min-h-screen bg-white shadow-md fixed z-50">
+      <!-- TITLE  -->
+      <h1 class="font-bold text-slate-700 text-2xl px-5 mt-5">
+        <span class="text-orange-600">Hepy</span
+        ><span class="text-purple-700">Tech!</span>
+      </h1>
+      <!-- END TITLE  -->
+
+      <!-- TITLE DASHBOARD -->
+      <h1 class="my-5 font-semibold text-slate-500 px-5">Dashboard</h1>
+      <!-- END TITLE DASHBOARD  -->
+
+      <!-- navlink  -->
+      <ul class="text-slate-600">
+        <li class="my-2">
+          <router-link
+            to=""
+            class="flex items-center px-5 hover:bg-purple-500 hover:text-white py-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              class="fill-current me-2"
+            >
+              <path
+                d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
+              ></path></svg
+            >User</router-link
+          >
+        </li>
+        <li class="my-2">
+          <!-- btn dropdown  -->
+          <button
+            v-if="showDropdown == false"
+            @click="activeDatabase()"
+            class="flex items-center w-full px-5 hover:bg-purple-500 hover:text-white py-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              class="fill-current me-2"
+            >
+              <path
+                d="M20 6c0-2.168-3.663-4-8-4S4 3.832 4 6v2c0 2.168 3.663 4 8 4s8-1.832 8-4V6zm-8 13c-4.337 0-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3c0 2.168-3.663 4-8 4z"
+              ></path>
+              <path
+                d="M20 10c0 2.168-3.663 4-8 4s-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3z"
+              ></path>
+            </svg>
+            Database
+          </button>
+          <button
+            v-if="showDropdown == true"
+            @click="nonactiveDatabase()"
+            class="flex items-center w-full px-5 hover:bg-purple-500 hover:text-white py-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              class="fill-current me-2"
+            >
+              <path
+                d="M20 6c0-2.168-3.663-4-8-4S4 3.832 4 6v2c0 2.168 3.663 4 8 4s8-1.832 8-4V6zm-8 13c-4.337 0-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3c0 2.168-3.663 4-8 4z"
+              ></path>
+              <path
+                d="M20 10c0 2.168-3.663 4-8 4s-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3z"
+              ></path>
+            </svg>
+            Database
+          </button>
+          <!-- end btn dropdown  -->
+          <!-- dropdown  -->
+          <ul v-if="showDropdown" class="ms-10 overflow-hidden">
+            <li data-aos="fade-down" class="flex">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL9JREFUSEvt080JwkAQhuE3PQi5e7EHBW1HvAp2IrkLKSQQrCEQCxAFazADEVYh7nzBBQ/JeTLP/G1G4i9LnJ8JiE74r0Z0AE7ANVp2EODtYAccgRZYK4gXyIFz18EcuABL4O7pxAtYrhBp+k6iiAK8kApYAC5EBQyZAXWArIDH0Lh+AdjSB0elAp/Vf01uXSmALVmavwKMuiAF2HZnWvSXswFunjegABa7B0rlFauAt+i3OGXJEzBqAtGfku/gCS9GIhmCfOLGAAAAAElFTkSuQmCC"
+              />News
+            </li>
+            <li data-aos="fade-down" class="flex">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAL9JREFUSEvt080JwkAQhuE3PQi5e7EHBW1HvAp2IrkLKSQQrCEQCxAFazADEVYh7nzBBQ/JeTLP/G1G4i9LnJ8JiE74r0Z0AE7ANVp2EODtYAccgRZYK4gXyIFz18EcuABL4O7pxAtYrhBp+k6iiAK8kApYAC5EBQyZAXWArIDH0Lh+AdjSB0elAp/Vf01uXSmALVmavwKMuiAF2HZnWvSXswFunjegABa7B0rlFauAt+i3OGXJEzBqAtGfku/gCS9GIhmCfOLGAAAAAElFTkSuQmCC"
+              />Port
+            </li>
+          </ul>
+          <!-- end dropdown  -->
+        </li>
+        <li class="my-2">
+          <router-link
+            to=""
+            class="flex items-center px-5 hover:bg-purple-500 hover:text-white py-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              class="fill-current me-2"
+            >
+              <path
+                d="M18 2H6a1 1 0 0 0-1 1v9l5-4v3h6v2h-6v3l-5-4v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"
+              ></path>
+            </svg>
+            Logout</router-link
+          >
+        </li>
+      </ul>
+      <!-- end navlink   -->
+    </div>
+    <!-- END SIDE BAR  -->
+
+    <!-- Content  -->
+    <div
+      class="w-full h-20 bg-white flex justify-end items-center px-5 fixed z-0"
+    >
+      <h3>
+        <span class="text-slate-500">Hi, </span
+        ><span class="font-bold text-slate-700">{{ nameAdmin }}</span>
+      </h3>
+    </div>
+    <!-- End content  -->
   </section>
 </template>
+
+<script>
+import swal from "sweetalert";
+export default {
+  data() {
+    return {
+      showDropdown: false,
+      nameAdmin: localStorage.getItem("name"),
+    };
+  },
+  methods: {
+    activeDatabase() {
+      this.showDropdown = true;
+    },
+    nonactiveDatabase() {
+      this.showDropdown = false;
+    },
+  },
+};
+</script>

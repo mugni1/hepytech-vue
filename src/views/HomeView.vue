@@ -527,6 +527,7 @@
             <div class="w-full flex md:gap-5">
               <div class="relative w-full flex justify-end">
                 <button
+                  @click="contacSubmit()"
                   type="submit"
                   class="py-3 px-8 bg-slate-500 hover:bg-orange-600 hover:scale-105 shadow-md md:shadow-lg transition-all rounded-lg text-white font-semibold"
                 >
@@ -552,6 +553,15 @@ import Footer from "@/components/Footer.vue";
 export default {
   components: {
     Footer,
+  },
+  methods: {
+    contacSubmit() {
+      swal({
+        icon: "success",
+        title: "Success",
+        text: "Pesan Berhasil Terkirim",
+      });
+    },
   },
 };
 </script>
