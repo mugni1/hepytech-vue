@@ -4,15 +4,9 @@
     <Sidebar />
     <!-- END SIDE BAR  -->
 
-    <!-- CONTENT  -->
-    <section
-      class="w-full h-20 bg-white flex justify-end items-center px-5 fixed z-0"
-    >
-      <!-- Heading  -->
-      <AdminHeading :name="nameAdmin" />
-      <!-- Heading  -->
-    </section>
-    <!-- END CONTENT  -->
+    <!-- HEADER  -->
+    <AdminHeading :name="adminName" />
+    <!-- END HEADER  -->
   </main>
 </template>
 
@@ -22,12 +16,12 @@ import Sidebar from "@/components/Sidebar.vue";
 
 export default {
   components: {
-    Sidebar,
     AdminHeading,
+    Sidebar,
   },
   data() {
     return {
-      nameAdmin: localStorage.getItem("name"),
+      adminName: localStorage.getItem("name"),
     };
   },
 };
