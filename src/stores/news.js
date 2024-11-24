@@ -6,6 +6,7 @@ export const useNews = defineStore("news", {
     loading: true,
     listNews: [],
     initialUser: null,
+    nameUser: localStorage.getItem("name"),
   }),
   getters: {},
   actions: {

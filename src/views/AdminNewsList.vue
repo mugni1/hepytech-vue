@@ -6,7 +6,10 @@
   <!-- MAIN -->
   <main class="w-full min-h-screen flex flex-wrap bg-slate-100">
     <!-- HEADER  -->
-    <AdminHeading :name="adminName" :initialName="useNews().initialUser" />
+    <AdminHeading
+      :name="useNews().nameUser"
+      :initialName="useNews().initialUser"
+    />
     <!-- END HEADER  -->
 
     <!-- CONTENT -->
@@ -112,11 +115,6 @@ export default {
   setup() {
     return {
       useNews,
-    };
-  },
-  data() {
-    return {
-      adminName: localStorage.getItem("name"),
     };
   },
   mounted() {

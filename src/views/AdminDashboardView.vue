@@ -9,7 +9,10 @@
       class="w-full h-20 bg-white flex justify-end items-center fixed z-0"
     >
       <!-- Heading  -->
-      <AdminHeading :name="nameAdmin" :initialName="useNews().initialUser" />
+      <AdminHeading
+        :name="useNews().nameUser"
+        :initialName="useNews().initialUser"
+      />
       <!-- Heading  -->
     </section>
     <!-- END CONTENT  -->
@@ -28,11 +31,6 @@ export default {
   },
   setup() {
     return { useNews };
-  },
-  data() {
-    return {
-      nameAdmin: localStorage.getItem("name"),
-    };
   },
   mounted() {
     useNews().getInitialUser();
