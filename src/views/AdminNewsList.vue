@@ -42,10 +42,9 @@
           <tr class="">
             <th class="border-b border-slate-300 w-1/12 py-2">#</th>
             <th class="border-b border-slate-300 w-2/12">Image</th>
-            <th class="border-b border-slate-300 w-1/12">Name</th>
+            <th class="border-b border-slate-300 w-3/12">Name</th>
             <th class="border-b border-slate-300 w-3/12">Text</th>
             <th class="border-b border-slate-300 w-2/12">Created</th>
-            <th class="border-b border-slate-300 w-2/12">Updated</th>
             <th class="border-b border-slate-300 w-1/12" colspan="2">Action</th>
           </tr>
           <tr v-for="(item, index) in useNews().listNews">
@@ -56,23 +55,20 @@
               v-if="item.image == null"
               class="border-b border-slate-200 py-5 text-center"
             >
-              Tidak Ada Gambar
+              <img src="/no_img.png" alt="" />
             </td>
             <td
               v-if="item.image != null"
               class="border-b border-slate-200 py-5 text-center"
             >
-              Ada Gambar
+              <img :src="`${useNews().urlImage}${item.image}`" alt="" />
             </td>
             <td class="border-b border-slate-200 py-5 px-2 text-center">
               {{ item.name }}
             </td>
             <td class="border-b border-slate-200 py-5 px-2">{{ item.text }}</td>
-            <td class="border-b border-slate-200 py-5 px-2">
+            <td class="border-b border-slate-200 py-5 px-2 text-center">
               {{ item.created_at }}
-            </td>
-            <td class="border-b border-slate-200 py-5 px-2">
-              {{ item.updated_at }}
             </td>
             <td class="border-b border-slate-200 py-5 px-2">
               <button
