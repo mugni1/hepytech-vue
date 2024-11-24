@@ -29,6 +29,8 @@
           Add News
         </router-link>
         <!-- end add news -->
+
+        <!-- search  -->
         <div>
           <input
             class="p-1 border outline-none rounded-lg mb-5"
@@ -37,6 +39,8 @@
             placeholder="Search news"
           />
         </div>
+        <!-- end search  -->
+
         <!-- table news -->
         <table class="w-12/12 bg-white">
           <tr class="">
