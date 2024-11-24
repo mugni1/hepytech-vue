@@ -1,15 +1,27 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import swal from "sweetalert";
 
 export const useNews = defineStore("news", {
   state: () => ({
     loading: true,
-    listNews: [],
+    urlImage: "http://localhost/hepytech-api/public/storage/img/",
+
+    // information admin
     initialUser: null,
     nameUser: localStorage.getItem("name"),
+
+    // list news
+    listNews: [],
+
+    //data to store db
+    nameNews: null,
+    textNews: null,
+    imageNews: null,
   }),
   getters: {},
   actions: {
+    // Get News List
     getNewsList() {
       axios({
         method: "get",
@@ -25,6 +37,35 @@ export const useNews = defineStore("news", {
           this.loading = false;
         });
     },
+    // Store new News
+    storeToDatabase() {
+      axios({
+        method: "post",
+        url: "http://localhost:8000/api/news/create",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+        data: {
+          name: this.nameNews,
+          text: this.textNews,
+          image: this.imageNews,
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            title: "Success create news",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    imageChange(e) {
+      this.imageNews = e.target.files[0];
+    },
+    // filter text
     newsFilterText(listNews) {
       const textLimit = 80;
       this.listNews = listNews.filter((item) =>
@@ -33,6 +74,7 @@ export const useNews = defineStore("news", {
           : item.text
       );
     },
+    // get initial for heading
     getInitialUser() {
       this.initialUser = localStorage
         .getItem("name")

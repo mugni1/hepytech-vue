@@ -63,12 +63,16 @@
             <!-- card image -->
             <div class="w-3/12 bg-slate-500 overflow-hidden">
               <div
-                style="
-                  background: url('/career/lifeat1.png');
-                  background-size: cover;
-                  background-position: center;
-                "
-                class="w-full h-full group-hover:scale-110 transition-all duration-300"
+                v-if="item.image == null"
+                style="background-image: url('/no_img.png');"
+                class="w-full h-full group-hover:scale-110 transition-all duration-300 bg-cover bg-center"
+              ></div>
+              <div
+                v-else
+                :style="`background-image: url(${useNews().urlImage}${
+                  item.image
+                });`"
+                class="w-full h-full group-hover:scale-110 transition-all duration-300 bg-cover bg-center"
               ></div>
             </div>
             <!-- end card image -->
@@ -78,11 +82,11 @@
               <h2
                 class="font-bold text-slate-900 w-full text-nowrap truncate text-lg"
               >
-                {{ item.title }}
+                {{ item.name }}
               </h2>
               <!-- end judul  -->
               <!-- paragraf -->
-              <p class="text-slate-500 mb-2 text-sm md:text-base">
+              <p class="text-slate-500 mb-2 text-sm md:text-base w-full">
                 {{ item.text }}
               </p>
               <!-- end paragraf  -->

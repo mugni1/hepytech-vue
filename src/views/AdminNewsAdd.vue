@@ -18,6 +18,52 @@
         News Add
       </h1>
       <!-- title  -->
+      <form
+        @submit.prevent="useNews().storeToDatabase()"
+        class="w-6/12 bg-white mx-auto rounded-lg shadow-lg flex flex-wrap p-5"
+      >
+        <div class="flex flex-wrap w-full py-1">
+          <label class="w-full font-semibold ps-1 text-slate-800" for=""
+            >Name</label
+          >
+          <input
+            class="w-full border outline-none p-1 rounded-lg"
+            type="text"
+            placeholder="Indonesia student"
+            v-model="useNews().nameNews"
+          />
+        </div>
+        <div class="flex flex-wrap w-full py-1">
+          <label class="w-full font-semibold ps-1 text-slate-800" for=""
+            >Image</label
+          >
+          <input
+            class="w-full border outline-none p-1 rounded-lg"
+            type="file"
+            placeholder="Indonesia student"
+            @change="useNews().imageChange($event)"
+          />
+        </div>
+        <div class="flex flex-wrap w-full py-1">
+          <label class="w-full font-semibold ps-1 text-slate-800" for=""
+            >Text</label
+          >
+          <textarea
+            class="w-full border rounded-lg outline-none p-1"
+            name=""
+            id=""
+            rows="8"
+            v-model="useNews().textNews"
+          ></textarea>
+        </div>
+        <div class="flex flex-wrap w-full pt-3">
+          <button
+            class="py-2 px-5 bg-emerald-600 font-semibold text-white rounded-lg"
+          >
+            Save
+          </button>
+        </div>
+      </form>
     </section>
     <!-- END CONTENT -->
   </main>
