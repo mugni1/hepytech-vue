@@ -6,10 +6,10 @@
 
     <!-- CONTENT  -->
     <section
-      class="w-full h-20 bg-white flex justify-end items-center px-5 fixed z-0"
+      class="w-full h-20 bg-white flex justify-end items-center fixed z-0"
     >
       <!-- Heading  -->
-      <AdminHeading :name="nameAdmin" />
+      <AdminHeading :name="nameAdmin" :initialName="useNews().initialUser" />
       <!-- Heading  -->
     </section>
     <!-- END CONTENT  -->
@@ -19,16 +19,23 @@
 <script>
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import { useNews } from "@/stores/news";
 
 export default {
   components: {
     Sidebar,
     AdminHeading,
   },
+  setup() {
+    return { useNews };
+  },
   data() {
     return {
       nameAdmin: localStorage.getItem("name"),
     };
+  },
+  mounted() {
+    useNews().getInitialUser();
   },
 };
 </script>

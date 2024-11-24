@@ -54,7 +54,7 @@
         class="w-full md:w-6/12 p-5"
         data-aos="fade-right"
         data-aos-duration="1000"
-        v-for="(item, index) in useNews().listNewsFilter"
+        v-for="(item, index) in useNews().listNews"
       >
         <router-link :to="'/hepynews/' + item.id + '/detail'">
           <div

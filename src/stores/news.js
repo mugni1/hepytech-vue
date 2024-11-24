@@ -5,7 +5,7 @@ export const useNews = defineStore("news", {
   state: () => ({
     loading: true,
     listNews: [],
-    listNewsFilter: null,
+    initialUser: null,
   }),
   getters: {},
   actions: {
@@ -15,8 +15,7 @@ export const useNews = defineStore("news", {
         url: "http://localhost:8000/api/news",
       })
         .then((response) => {
-          this.listNews = response.data.data;
-          this.newsFilterText();
+          this.newsFilterText(response.data.data);
         })
         .catch((error) => {
           console.log(error);
@@ -25,13 +24,19 @@ export const useNews = defineStore("news", {
           this.loading = false;
         });
     },
-    newsFilterText() {
+    newsFilterText(listNews) {
       const textLimit = 80;
-      this.listNewsFilter = this.listNews.filter((item) =>
+      this.listNews = listNews.filter((item) =>
         item.text.length > textLimit
           ? (item.text = item.text.substring(0, textLimit) + "...")
           : item.text
       );
+    },
+    getInitialUser() {
+      this.initialUser = localStorage
+        .getItem("name")
+        .substring(0, 1)
+        .toUpperCase();
     },
   },
 });
