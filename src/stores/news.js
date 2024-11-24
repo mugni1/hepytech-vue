@@ -68,6 +68,43 @@ export const useNews = defineStore("news", {
     imageChange(e) {
       this.imageNews = e.target.files[0];
     },
+    //DELETE NEWS
+    dropNews(id, index) {
+      swal({
+        icon: "warning",
+        title: "Warning",
+        text: "Do you want to delete",
+        buttons: true,
+        dangerMode: true,
+      }).then((isTrue) => {
+        if (isTrue) {
+          axios({
+            method: "delete",
+            url: `http://localhost:8000/api/news/${id}/delete`,
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
+            .then((response) => {
+              this.listNews.splice(index, 1);
+              swal({
+                icon: "success",
+                title: "Success delete",
+              });
+            })
+            .catch((error) => {
+              swal({
+                icon: "error",
+                title: "Error",
+              });
+            });
+        } else {
+          swal({
+            title: "Cancel Delete",
+          });
+        }
+      });
+    },
     // filter text
     newsFilterText(listNews) {
       const textLimit = 80;
