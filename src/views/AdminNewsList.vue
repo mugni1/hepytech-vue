@@ -20,6 +20,7 @@
       </h1>
       <!-- title  -->
 
+      <!-- CARD  -->
       <div class="p-5 bg-white rounded-xl shadow-lg">
         <!-- add news  -->
         <router-link
@@ -106,6 +107,7 @@
         </table>
         <!-- table news -->
       </div>
+      <!--END CARD  -->
     </section>
     <!-- END CONTENT -->
   </main>
