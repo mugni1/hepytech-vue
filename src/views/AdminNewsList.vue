@@ -22,11 +22,12 @@
 
       <div class="p-5 bg-white rounded-xl shadow-lg">
         <!-- add news  -->
-        <button
-          class="py-2 px-5 bg-emerald-600 mb-5 shadow-md rounded-lg text-white font-semibold"
+        <router-link
+          to="/admin/news-add"
+          class="py-2 px-5 bg-emerald-600 mb-5 shadow-md rounded-lg text-white font-semibold inline-block"
         >
           Add News
-        </button>
+        </router-link>
         <!-- end add news -->
         <div>
           <input

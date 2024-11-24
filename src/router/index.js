@@ -8,6 +8,7 @@ import HepyNewsDetail from "@/views/HepyNewsDetail.vue";
 import LoginView from "@/views/LoginView.vue";
 import AdminDashboardView from "@/views/AdminDashboardView.vue";
 import AdminNewsList from "@/views/AdminNewsList.vue";
+import AdminNewsAdd from "@/views/AdminNewsAdd.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -28,6 +29,7 @@ const routes = [
     component: AdminDashboardView,
   },
   { path: "/admin/news-list", name: "adminNewsList", component: AdminNewsList },
+  { path: "/admin/news-add", name: "adminNewsAdd", component: AdminNewsAdd },
 ];
 
 const router = createRouter({
