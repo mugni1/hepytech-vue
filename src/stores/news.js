@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import swal from "sweetalert";
+import router from "@/router";
 
 export const useNews = defineStore("news", {
   state: () => ({
@@ -56,6 +57,8 @@ export const useNews = defineStore("news", {
           swal({
             icon: "success",
             title: "Success create news",
+          }).then((succes) => {
+            router.push({ name: "adminNewsList" });
           });
         })
         .catch((error) => {

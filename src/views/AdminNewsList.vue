@@ -55,13 +55,21 @@
               v-if="item.image == null"
               class="border-b border-slate-200 py-5 text-center"
             >
-              <img src="/no_img.png" alt="" />
+              <img class="rounded-lg" src="/no_img.png" alt="" />
             </td>
             <td
               v-if="item.image != null"
               class="border-b border-slate-200 py-5 text-center"
             >
-              <img :src="`${useNews().urlImage}${item.image}`" alt="" />
+              <div
+                class="w-full h-28 overflow-hidden flex items-center rounded-lg"
+              >
+                <img
+                  class="rounded-lg"
+                  :src="`${useNews().urlImage}${item.image}`"
+                  alt=""
+                />
+              </div>
             </td>
             <td class="border-b border-slate-200 py-5 px-2 text-center">
               {{ item.name }}
