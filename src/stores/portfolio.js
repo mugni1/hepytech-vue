@@ -40,7 +40,12 @@ export const usePortfolioStore = defineStore("portfolio", {
           this.loading = false;
         });
     },
-
+    /// ADD PORTFOLIO
+    createPortfolio() {
+      swal({
+        icon: "success",
+      });
+    },
     // DELETE PORTFOLIO
     dropPortfolio(itemId, index) {
       swal({
