@@ -85,6 +85,17 @@
               </router-link>
             </td>
           </tr>
+          <tr v-if="usePortfolioStore().loading == true">
+            <th colspan="7" class="py-5 text-2xl">Loading data ...</th>
+          </tr>
+          <tr
+            v-if="
+              usePortfolioStore().loading == false &&
+              usePortfolioStore().listPortfolio.length < 1
+            "
+          >
+            <th colspan="7" class="py-5 text-2xl text-red-500">No Data</th>
+          </tr>
         </table>
       </div>
       <!--END CARD  -->

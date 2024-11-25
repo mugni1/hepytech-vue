@@ -35,7 +35,11 @@ export const useNews = defineStore("news", {
           this.newsFilterText(response.data.data);
         })
         .catch((error) => {
-          console.log(error);
+          swal({
+            icon: "error",
+            title: "Error Connection",
+            text: "Please check your connections",
+          });
         })
         .finally(() => {
           this.loading = false;
