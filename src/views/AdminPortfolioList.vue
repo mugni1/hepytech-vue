@@ -1,14 +1,14 @@
 <template>
-  <!-- SIDE BAR -->
+  <!-- SIDE BAR  -->
   <Sidebar />
-  <!-- END SIDE BAR  -->
+  <!-- SIDE BAR  -->
 
   <!-- MAIN -->
   <main class="w-full min-h-screen flex flex-wrap bg-slate-100">
     <!-- HEADER  -->
     <AdminHeading
-      :name="useNews().nameUser"
-      :initialName="useNews().initialUser"
+      :name="usePortfolioStore().userName"
+      :initialName="usePortfolioStore().initialName"
     />
     <!-- END HEADER  -->
 
@@ -16,7 +16,7 @@
     <section class="min-h-screen w-10/12 pt-20 ms-auto px-5">
       <!-- title  -->
       <h1 class="font-bold text-2xl text-slate-800 text-center my-5">
-        News List
+        Portfolio List
       </h1>
       <!-- title  -->
 
@@ -42,48 +42,33 @@
         </div>
         <!-- end search  -->
 
-        <!-- table news -->
-        <table class="w-full bg-white">
-          <tr class="">
-            <th class="border-b border-slate-300 w-1/12 py-2">#</th>
-            <th class="border-b border-slate-300 w-2/12">Image</th>
-            <th class="border-b border-slate-300 w-3/12">Name</th>
-            <th class="border-b border-slate-300 w-3/12">Text</th>
-            <th class="border-b border-slate-300 w-2/12">Created</th>
-            <th class="border-b border-slate-300 w-1/12" colspan="2">Action</th>
+        <!-- TABLE  -->
+        <table class="w-full">
+          <tr>
+            <th class="w-1/12 border-b border-slate-300 py-4">No</th>
+            <th class="w-2/12 border-b border-slate-300 py-4">Image</th>
+            <th class="w-3/12 border-b border-slate-300 py-4">Name</th>
+            <th class="w-3/12 border-b border-slate-300 py-4">Categori</th>
+            <th class="w-3/12 border-b border-slate-300 py-4" colspan="2">
+              Action
+            </th>
           </tr>
-          <tr v-for="(item, index) in useNews().listNews">
-            <td class="border-b border-slate-200 py-5 text-center">
-              {{ index + 1 }}
-            </td>
-            <td
-              v-if="item.image == null"
-              class="border-b border-slate-200 py-5 text-center"
-            >
-              <img class="rounded-lg" src="/no_img.png" alt="" />
-            </td>
-            <td
-              v-if="item.image != null"
-              class="border-b border-slate-200 py-5 text-center"
-            >
+          <tr v-for="(item, index) in usePortfolioStore().listPortfolio">
+            <td class="border-b text-center py-2">{{ index + 1 }}</td>
+            <td class="border-b border-slate-200 p-2 text-center">
               <div
                 class="w-full h-28 overflow-hidden flex items-center rounded-lg"
               >
                 <img
                   class="rounded-lg"
-                  :src="`${useNews().urlImage}${item.image}`"
+                  :src="`${usePortfolioStore().urlImage}${item.image}`"
                   alt=""
                 />
               </div>
             </td>
-            <td class="border-b border-slate-200 py-5 px-2 text-center">
-              {{ item.name }}
-            </td>
-            <td class="border-b border-slate-200 py-5 px-2">{{ item.text }}</td>
-            <td class="border-b border-slate-200 py-5 px-2 text-center">
-              {{ item.created_at }}
-            </td>
-            <td class="border-b border-slate-200 py-5 px-2">
+            <td class="border-b py-2 text-center">{{ item.name }}</td>
+            <td class="text-center border-b py-2">{{ item.categori.name }}</td>
+            <td class="border-b border-slate-200 py-2 px-2 text-center">
               <button
                 class="font-semibold text-white py-2 px-5 bg-red-600 rounded-lg shadow-md hover:bg-red-800"
                 @click="useNews().dropNews(item.id, index)"
@@ -91,7 +76,7 @@
                 Delete
               </button>
             </td>
-            <td class="border-b border-slate-200 py-5 px-2">
+            <td class="border-b border-slate-200 py-2 px-2 text-center">
               <router-link
                 :to="`/admin/news/${item.id}/edit`"
                 class="font-semibold text-white py-2 px-5 bg-purple-600 rounded-lg shadow-md hover:bg-purple-800"
@@ -100,13 +85,7 @@
               </router-link>
             </td>
           </tr>
-          <tr v-if="useNews().loading">
-            <td colspan="7" class="text-center py-4">
-              <h1 class="font-semibold text-2xl">Loading</h1>
-            </td>
-          </tr>
         </table>
-        <!-- table news -->
       </div>
       <!--END CARD  -->
     </section>
@@ -118,21 +97,20 @@
 <script>
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import { useNews } from "@/stores/news";
-
+import { usePortfolioStore } from "@/stores/portfolio";
 export default {
   components: {
-    AdminHeading,
     Sidebar,
+    AdminHeading,
   },
   setup() {
     return {
-      useNews,
+      usePortfolioStore,
     };
   },
   mounted() {
-    useNews().getNewsList();
-    useNews().getInitialUser();
+    usePortfolioStore().getInitialUserName();
+    usePortfolioStore().getListPort();
   },
 };
 </script>

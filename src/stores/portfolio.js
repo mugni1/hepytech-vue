@@ -7,6 +7,13 @@ export const usePortfolioStore = defineStore("portfolio", {
     listPortfolioFilter: null,
     showList: true,
     loading: true,
+
+    //URL IMAGE
+    urlImage: "http://localhost/hepytech-api/public/storage/img/",
+
+    //USERNAME
+    userName: localStorage.getItem("name"),
+    initialName: null,
   }),
 
   getters: {},
@@ -50,5 +57,12 @@ export const usePortfolioStore = defineStore("portfolio", {
       );
       this.showList = false;
     },
+
+    // GET INITIAL USERNAME
+    getInitialUserName() {
+      this.initialName = this.userName.substring(0, 1).toUpperCase();
+    },
+
+    // DELERW PORTFOLIO
   },
 });
