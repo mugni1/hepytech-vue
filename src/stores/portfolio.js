@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import router from "@/router";
 
 export const usePortfolioStore = defineStore("portfolio", {
   state: () => ({
@@ -7,7 +8,7 @@ export const usePortfolioStore = defineStore("portfolio", {
     listPortfolioFilter: null,
     showList: true,
     loading: true,
-
+    loadingBtnDelete: false,
     //URL IMAGE
     urlImage: "http://localhost/hepytech-api/public/storage/img/",
 
@@ -40,6 +41,50 @@ export const usePortfolioStore = defineStore("portfolio", {
         });
     },
 
+    // DELETE PORTFOLIO
+    dropPortfolio(itemId, index) {
+      swal({
+        icon: "warning",
+        title: "Warning Delete",
+        buttons: true,
+        dangerMode: true,
+      }).then((isTrue) => {
+        if (isTrue) {
+          this.loadingBtnDelete = true;
+          axios({
+            method: "delete",
+            url: `http://localhost:8000/api/portfolio/${itemId}/delete`,
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
+            .then((response) => {
+              swal({
+                icon: "success",
+                title: "Success Delete",
+              }).then((isTrue) => {
+                if (isTrue) {
+                  this.listPortfolio.splice(index, 1);
+                }
+              });
+            })
+            .catch((error) => {
+              swal({
+                icon: "error",
+                title: "Error Connection",
+                text: "Please check your connections",
+              });
+            })
+            .finally(() => {
+              this.loadingBtnDelete = false;
+            });
+        } else {
+          swal({
+            title: "Cancel delete",
+          });
+        }
+      });
+    },
     all() {
       this.showList = true;
     },

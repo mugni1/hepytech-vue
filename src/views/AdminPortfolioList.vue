@@ -70,10 +70,17 @@
             <td class="text-center border-b py-2">{{ item.categori.name }}</td>
             <td class="border-b border-slate-200 py-2 px-2 text-center">
               <button
+                v-if="usePortfolioStore().loadingBtnDelete == false"
                 class="font-semibold text-white py-2 px-5 bg-red-600 rounded-lg shadow-md hover:bg-red-800"
-                @click="useNews().dropNews(item.id, index)"
+                @click="usePortfolioStore().dropPortfolio(item.id, index)"
               >
                 Delete
+              </button>
+              <button
+                v-if="usePortfolioStore().loadingBtnDelete == true"
+                class="font-semibold text-white py-2 px-5 bg-red-600 rounded-lg shadow-md hover:bg-red-800"
+              >
+                Loading
               </button>
             </td>
             <td class="border-b border-slate-200 py-2 px-2 text-center">
