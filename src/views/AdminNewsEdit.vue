@@ -22,7 +22,7 @@
 
       <!-- CARD  -->
       <form
-        @submit.prevent="useNews().storeToDatabase()"
+        @submit.prevent="useNews().updateToDatabase($route.params.id)"
         class="w-6/12 bg-white mx-auto rounded-lg shadow-lg flex flex-wrap p-5"
       >
         <div class="flex flex-wrap w-full py-1">
@@ -88,7 +88,7 @@ export default {
   },
   mounted() {
     useNews().getInitialUser();
-    useNews().getNewsDetail();
+    useNews().getNewsDetail(this.$route.params.id);
   },
 };
 </script>

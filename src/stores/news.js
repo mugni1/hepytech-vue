@@ -15,6 +15,9 @@ export const useNews = defineStore("news", {
     // list news
     listNews: [],
 
+    // NEWS DETAIL
+    newsDetail: null,
+
     //data to store db and update
     nameNews: null,
     textNews: null,
@@ -38,13 +41,26 @@ export const useNews = defineStore("news", {
           this.loading = false;
         });
     },
-    // GET NEWS
-    getNewsDetail() {
-      swal({
-        icon: "success",
-      });
+    // GET NEWS DETAIL
+    getNewsDetail(paramsId) {
+      axios({
+        method: "get",
+        url: `http://localhost:8000/api/news/${paramsId}/detail`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+        .then((response) => {
+          this.newsDetail = response.data.data;
+          this.nameNews = response.data.data.name;
+          this.textNews = response.data.data.text;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {});
     },
-    // Store new News
+    // CREATE NEWS
     storeToDatabase() {
       axios({
         method: "post",
@@ -69,6 +85,39 @@ export const useNews = defineStore("news", {
         })
         .catch((error) => {
           console.log(error);
+        });
+    },
+    // UPDATE NEWS
+    updateToDatabase(paramsId) {
+      axios({
+        method: "post",
+        url: `http://localhost:8000/api/news/${paramsId}/update`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+        data: {
+          name: this.nameNews,
+          text: this.textNews,
+          image: this.imageNews,
+          _method: "put",
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            text: "Update success",
+          }).then((isTrue) => {
+            if (isTrue) {
+              router.push({ name: "adminNewsList" });
+            }
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            text: "Update failed",
+          });
         });
     },
     imageChange(e) {
