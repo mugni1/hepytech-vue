@@ -176,5 +176,9 @@ export const useNews = defineStore("news", {
         .substring(0, 1)
         .toUpperCase();
     },
+    // delete news
+    removeNews() {
+      (this.nameNews = null), (this.textNews = null), (this.imageNews = null);
+    },
   },
 });

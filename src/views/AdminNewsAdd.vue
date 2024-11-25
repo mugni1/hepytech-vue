@@ -85,6 +85,7 @@ export default {
   },
   mounted() {
     useNews().getInitialUser();
+    useNews().removeNews();
   },
 };
 </script>
