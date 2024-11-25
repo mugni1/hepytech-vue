@@ -9,6 +9,7 @@ import LoginView from "@/views/LoginView.vue";
 import AdminDashboardView from "@/views/AdminDashboardView.vue";
 import AdminNewsList from "@/views/AdminNewsList.vue";
 import AdminNewsAdd from "@/views/AdminNewsAdd.vue";
+import AdminNewsEdit from "@/views/AdminNewsEdit.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -30,6 +31,11 @@ const routes = [
   },
   { path: "/admin/news-list", name: "adminNewsList", component: AdminNewsList },
   { path: "/admin/news-add", name: "adminNewsAdd", component: AdminNewsAdd },
+  {
+    path: "/admin/news/:id/edit",
+    name: "adminNewsEdti",
+    component: AdminNewsEdit,
+  },
 ];
 
 const router = createRouter({

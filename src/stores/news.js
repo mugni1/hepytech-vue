@@ -15,14 +15,14 @@ export const useNews = defineStore("news", {
     // list news
     listNews: [],
 
-    //data to store db
+    //data to store db and update
     nameNews: null,
     textNews: null,
     imageNews: null,
   }),
   getters: {},
   actions: {
-    // Get News List
+    // GET NEWS LIST
     getNewsList() {
       axios({
         method: "get",
@@ -37,6 +37,12 @@ export const useNews = defineStore("news", {
         .finally(() => {
           this.loading = false;
         });
+    },
+    // GET NEWS
+    getNewsDetail() {
+      swal({
+        icon: "success",
+      });
     },
     // Store new News
     storeToDatabase() {

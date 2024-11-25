@@ -92,11 +92,12 @@
               </button>
             </td>
             <td class="border-b border-slate-200 py-5 px-2">
-              <button
+              <router-link
+                :to="`/admin/news/${item.id}/edit`"
                 class="font-semibold text-white py-2 px-5 bg-purple-600 rounded-lg shadow-md hover:bg-purple-800"
               >
                 Update
-              </button>
+              </router-link>
             </td>
           </tr>
           <tr v-if="useNews().loading">
