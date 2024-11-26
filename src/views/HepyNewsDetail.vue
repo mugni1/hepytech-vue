@@ -16,8 +16,25 @@
         </h5>
         <!--end judul  -->
 
-        <!-- image new  -->
+        <!-- no image news  -->
         <div
+          v-if="useNews().newsDetail.image == null"
+          class="w-full h-60 md:h-80 bg-slate-500 rounded-lg shadow-md overflow-hidden mb-5"
+        >
+          <div
+            style="
+              background: url('/no_img.png');
+              background-size: cover;
+              background-position: center;
+            "
+            class="h-full w-full"
+          ></div>
+        </div>
+        <!-- end no image news -->
+
+        <!-- image news  -->
+        <div
+          v-else
           class="w-full h-60 md:h-80 bg-slate-500 rounded-lg shadow-md overflow-hidden mb-5"
         >
           <div
@@ -67,8 +84,23 @@
             <div
               class="w-full border rounded-xl shadow-md flex overflow-hidden group"
             >
+              <!-- no card image -->
+              <div
+                v-if="item.image == null"
+                class="w-3/12 bg-slate-500 overflow-hidden"
+              >
+                <div
+                  style="
+                    background: url('/no_img.png');
+                    background-size: cover;
+                    background-position: center;
+                  "
+                  class="w-full h-full group-hover:scale-110 transition-all duration-300"
+                ></div>
+              </div>
+              <!-- end no card image -->
               <!-- card image -->
-              <div class="w-3/12 bg-slate-500 overflow-hidden">
+              <div v-else class="w-3/12 bg-slate-500 overflow-hidden">
                 <div
                   :style="`
                     background: url(${useNews().urlImage}${item.image});
@@ -151,13 +183,6 @@ export default {
       useNews().loading = true;
       useNews().getNewsDetail(this.$route.params.id);
     },
-    // newsDetailAfterClick() {
-    //   this.newsDetail = this.listNews.filter(
-    //     (item) => item.id == this.$route.params.id
-    //   );
-    //   console.log(this.newsDetail);
-    //   console.log(this.listNews);
-    // },
   },
 };
 </script>
