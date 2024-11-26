@@ -85,7 +85,7 @@
             </td>
             <td class="border-b border-slate-200 py-2 px-2 text-center">
               <router-link
-                :to="`/admin/news/${item.id}/edit`"
+                :to="`/admin/portfolio/${item.id}/edit`"
                 class="font-semibold text-white py-2 px-5 bg-purple-600 rounded-lg shadow-md hover:bg-purple-800"
               >
                 Update
