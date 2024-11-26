@@ -23,6 +23,9 @@ export const usePortfolioStore = defineStore("portfolio", {
     userName: localStorage.getItem("name"),
     initialName: null,
 
+    // data potfolio
+    portfolioDetail: null,
+
     // data form
     portfolioName: null,
     portfolioCategoriId: null,
@@ -52,12 +55,7 @@ export const usePortfolioStore = defineStore("portfolio", {
           this.loading = false;
         });
     },
-    /// ADD PORTFOLIO
-    createPortfolio() {
-      swal({
-        icon: "success",
-      });
-    },
+
     // DELETE PORTFOLIO
     dropPortfolio(itemId, index) {
       swal({
@@ -180,6 +178,68 @@ export const usePortfolioStore = defineStore("portfolio", {
             title: "Success create news",
           }).then((succes) => {
             router.push({ name: "porfolioList" });
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Error create new portfolio",
+          });
+        })
+        .finally(() => {
+          this.loadingBtnAdd = false;
+        });
+    },
+    // SHOW / DETAIL
+    getPortfolioDetail(id) {
+      axios({
+        method: "get",
+        url: `http://localhost:8000/api/portfolio/${id}/detail`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+        .then((response) => {
+          this.portfolioDetail = response.data.data;
+          this.portfolioName = response.data.data.name;
+          this.portfolioCategoriId = response.data.data.categori.id;
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Please Check your connections",
+          });
+        })
+        .finally(() => {
+          this.loadingBtnAdd = false;
+        });
+    },
+    // UPDATE / PORTFOLIO
+    updatePortfolio(id) {
+      this.loadingBtnAdd = true;
+      axios({
+        method: "post",
+        url: `http://localhost:8000/api/portfolio/${id}/update`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+        data: {
+          name: this.portfolioName,
+          categori_id: this.portfolioCategoriId,
+          image: this.portfolioImage,
+          _method: "put",
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            title: "Success create news",
+          }).then((isTrue) => {
+            if (isTrue) {
+              router.push({ name: "portfolioList" });
+            }
           });
         })
         .catch((error) => {

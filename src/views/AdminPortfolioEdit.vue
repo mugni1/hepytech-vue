@@ -15,11 +15,11 @@
     <section class="min-h-screen w-10/12 pt-20 ms-auto px-5">
       <!-- title  -->
       <h1 class="font-bold text-2xl text-slate-800 text-center my-5">
-        PortFolio Add
+        PortFolio Edit
       </h1>
       <!-- title  -->
       <form
-        @submit.prevent="usePortfolioStore().storeToDatabase()"
+        @submit.prevent="usePortfolioStore().updatePortfolio($route.params.id)"
         class="w-6/12 bg-white mx-auto rounded-lg shadow-lg flex flex-wrap p-5"
       >
         <div class="flex flex-wrap w-full py-1">
@@ -100,6 +100,8 @@ export default {
   },
   mounted() {
     usePortfolioStore().getInitialUserName();
+    usePortfolioStore().getPortfolioDetail(this.$route.params.id);
+    usePortfolioStore().getCategoryList();
   },
 };
 </script>
