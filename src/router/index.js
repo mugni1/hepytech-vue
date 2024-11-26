@@ -11,6 +11,7 @@ import AdminNewsList from "@/views/AdminNewsList.vue";
 import AdminNewsAdd from "@/views/AdminNewsAdd.vue";
 import AdminNewsEdit from "@/views/AdminNewsEdit.vue";
 import AdminPortfolioList from "@/views/AdminPortfolioList.vue";
+import AdminPortfolioAdd from "@/views/AdminPortfolioAdd.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -45,6 +46,11 @@ const routes = [
     path: "/admin/portfolio-list",
     name: "portfolioList",
     component: AdminPortfolioList,
+  },
+  {
+    path: "/admin/portfolio-add",
+    name: "portfolioAdd",
+    component: AdminPortfolioAdd,
   },
 ];
 
