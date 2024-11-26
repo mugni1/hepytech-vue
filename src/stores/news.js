@@ -14,9 +14,10 @@ export const useNews = defineStore("news", {
 
     // list news
     listNews: [],
+    listNewsFilterId: null,
 
     // NEWS DETAIL
-    newsDetail: null,
+    newsDetail: [],
 
     //data to store db and update
     nameNews: null,
@@ -58,11 +59,14 @@ export const useNews = defineStore("news", {
           this.newsDetail = response.data.data;
           this.nameNews = response.data.data.name;
           this.textNews = response.data.data.text;
+          this.filterId(paramsId);
         })
         .catch((error) => {
           console.log(error);
         })
-        .finally(() => {});
+        .finally(() => {
+          this.loading = false;
+        });
     },
     // CREATE NEWS
     storeToDatabase() {
@@ -183,6 +187,11 @@ export const useNews = defineStore("news", {
     // delete news
     removeNews() {
       (this.nameNews = null), (this.textNews = null), (this.imageNews = null);
+    },
+    // filter ID
+    filterId(id) {
+      //filter id
+      this.listNewsFilterId = this.listNews.filter((item) => item.id != id);
     },
   },
 });

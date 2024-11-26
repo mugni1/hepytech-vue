@@ -54,6 +54,7 @@
         class="w-full md:w-6/12 p-5"
         data-aos="fade-right"
         data-aos-duration="1000"
+        @click="pushNewsDetail()"
         v-for="(item, index) in useNews().listNews"
       >
         <router-link :to="'/hepynews/' + item.id + '/detail'">
@@ -158,6 +159,13 @@ export default {
   mounted() {
     // fetch saat mounted
     useNews().getNewsList();
+  },
+  methods: {
+    pushNewsDetail() {
+      useNews().loading = true;
+      useNews().getNewsDetail(this.$route.params.id);
+      useNews().filterId(this.$route.params.id);
+    },
   },
 };
 </script>
