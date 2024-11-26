@@ -64,9 +64,17 @@
         </div>
         <div class="flex flex-wrap w-full pt-3">
           <button
+            v-if="usePortfolioStore().loadingBtnAdd == false"
             class="py-2 px-5 bg-emerald-600 font-semibold text-white rounded-lg"
           >
             Save
+          </button>
+          <button
+            v-if="usePortfolioStore().loadingBtnAdd == true"
+            :disabled="usePortfolioStore().loadingBtnAdd"
+            class="py-2 px-5 bg-emerald-600 font-semibold text-white rounded-lg"
+          >
+            Loading
           </button>
         </div>
       </form>

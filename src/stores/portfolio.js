@@ -6,6 +6,7 @@ export const usePortfolioStore = defineStore("portfolio", {
   state: () => ({
     loading: true,
     loadingBtnDelete: false,
+    loadingBtnAdd: false,
 
     // PORTFOLIO
     listPortfolio: [],
@@ -159,6 +160,7 @@ export const usePortfolioStore = defineStore("portfolio", {
     },
     // CREATE / STORE TO DATABASE
     storeToDatabase() {
+      this.loadingBtnAdd = true;
       axios({
         method: "post",
         url: "http://localhost:8000/api/portfolio/store",
@@ -185,6 +187,9 @@ export const usePortfolioStore = defineStore("portfolio", {
             icon: "error",
             title: "Error create new portfolio",
           });
+        })
+        .finally(() => {
+          this.loadingBtnAdd = false;
         });
     },
   },
