@@ -13,7 +13,7 @@
           data-aos="fade-right"
           data-aos-duration="800"
         >
-          Solusi Digital Terbaik di Ujung Jari Anda
+          The Best Digital Solutions at Your Fingertips
         </h1>
         <h1
           style="line-height: 3rem;"
@@ -21,7 +21,7 @@
           data-aos="fade-right"
           data-aos-duration="800"
         >
-          Solusi Digital Terbaik di Ujung Jari Anda
+          The Best Digital Solutions at Your Fingertips
         </h1>
         <div
           class="text-slate-700 mb-5"
@@ -29,10 +29,9 @@
           data-aos-duration="1000"
         >
           <p>
-            Kami melayani pembuatan aplikasi berbasis Mobile, Dekstop dan
-            Website.
+            We provide services for creating mobile, desktop and desktop
+            applications Website. Come on, start your business from here
           </p>
-          <p>Ayo wujudkan bisnismu mulai dari sini</p>
         </div>
         <!-- btn -->
         <div class="flex gap-5" data-aos="fade-right" data-aos-duration="1000">
@@ -81,7 +80,7 @@
           data-aos="fade-right"
           data-aos-duration="1000"
         >
-          Tentang Kami
+          About
         </h2>
         <p
           data-aos="fade-left"
@@ -146,7 +145,7 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        Di Percaya Oleh
+        Trusted on
       </h1>
       <!-- box -->
       <div
