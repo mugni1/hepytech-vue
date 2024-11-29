@@ -77,7 +77,7 @@
       <!-- column 2  -->
       <div class="md:w-6/12 xl:w-8/12">
         <h2
-          class="font-bold text-3xl mb-5 text-slate-800"
+          class="font-bold text-2xl md:text-3xl mb-5 text-slate-800"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
@@ -142,7 +142,7 @@
       class="container mx-auto w-full flex flex-wrap pt-20 px-5 overflow-x-hidden overflow-y-hidden"
     >
       <h1
-        class="w-full text-center font-bold text-slate-800 text-3xl"
+        class="w-full text-center font-bold text-slate-800 text-2xl md:text-3xl"
         data-aos="fade-up"
         data-aos-duration="800"
       >
@@ -218,7 +218,7 @@
           class="h-full w-full md:w-4/12 flex flex-wrap justify-center mb-10"
         >
           <div
-            class="w-full text-center mb-8 mx-5 text-3xl font-bold mt-2 text-slate-800"
+            class="w-full text-center mb-8 mx-5 text-2xl md:text-3xl font-bold mt-2 text-slate-800"
           >
             Get in touch with us
           </div>
