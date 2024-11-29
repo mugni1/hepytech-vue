@@ -73,8 +73,9 @@
       >
         <button
           @click="navLinkHidden()"
-          class="h-20 w-full flex items-center justify-end md:hidden text-slate-500"
+          class="h-20 w-full flex items-center justify-between md:hidden text-slate-500"
         >
+          <span class="ps-3 text-lg">Menu</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
