@@ -155,47 +155,47 @@
         data-aos-duration="1000"
       >
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/bahana.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/bukalapak.webp" alt="" class="p-5 w-full" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/pertamina.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/otsuka.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/telkomsel.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/yamaha.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/unilever.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/toyota.webp" alt="" class="p-5" />
         </div>
         <div
-          class="w-6/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
+          class="w-4/12 md:w-2/12 filter grayscale hover:grayscale-0 transition-all hover:ring-1 ring-slate-200 rounded-full hover:shadow-md cursor-pointer flex justify-center items-center"
         >
           <img src="/marquee/unicef.webp" alt="" class="p-5" />
         </div>
