@@ -80,6 +80,101 @@
         <!-- end btn dropdown  -->
         <!-- dropdown  -->
         <ul v-if="showDropdown" class="ps-10 overflow-hidden absolute w-full">
+          <li data-aos="fade-down" class="flex">
+            <router-link
+              class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
+              to="/admin/home"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                ></path>
+              </svg>
+              <span>Home</span>
+            </router-link>
+          </li>
+          <li data-aos="fade-down" class="flex">
+            <router-link
+              class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
+              to="/admin/portfolio-list"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                ></path>
+              </svg>
+              <span>About</span>
+            </router-link>
+          </li>
+          <li data-aos="fade-down" class="flex">
+            <router-link
+              class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
+              to="/admin/portfolio-list"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                ></path>
+              </svg>
+              <span>Trusted on</span>
+            </router-link>
+          </li>
+          <li data-aos="fade-down" class="flex">
+            <router-link
+              class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
+              to="/admin/portfolio-list"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                ></path>
+              </svg>
+              <span>Contac us</span>
+            </router-link>
+          </li>
+          <li data-aos="fade-down" class="flex">
+            <router-link
+              class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
+              to="/admin/portfolio-list"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                ></path>
+              </svg>
+              <span>Footer</span>
+            </router-link>
+          </li>
           <li data-aos="fade-down">
             <router-link
               class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
@@ -157,7 +252,7 @@ export default {
   },
   methods: {
     activeDatabase() {
-      this.animateLinkLogout = "translate-y-10";
+      this.animateLinkLogout = "translate-y-40";
       this.showDropdown = true;
     },
     nonactiveDatabase() {
