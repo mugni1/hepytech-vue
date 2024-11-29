@@ -38,7 +38,7 @@
           <button
             class="py-2 px-5 border rounded-full shadow-md font-semibold border-purple-700 bg-purple-700 text-white hover:scale-95 hover:bg-purple-900 hover:shadow-sm transition-all"
           >
-            Contac
+            Contac us
           </button>
           <button
             class="py-2 px-5 border rounded-full shadow-md font-semibold border-purple-700 bg-white text-slate-800 hover:text-white hover:scale-95 hover:bg-purple-900 hover:shadow-sm transition-all"
