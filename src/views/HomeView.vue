@@ -77,7 +77,7 @@
       <!-- column 2  -->
       <div class="md:w-6/12 xl:w-8/12">
         <h2
-          class="font-semibold text-2xl mb-5 text-slate-800"
+          class="font-bold text-3xl mb-5 text-slate-800"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
@@ -142,7 +142,7 @@
       class="container mx-auto w-full flex flex-wrap pt-20 px-5 overflow-x-hidden overflow-y-hidden"
     >
       <h1
-        class="w-full text-center font-bold text-slate-800 text-2xl"
+        class="w-full text-center font-bold text-slate-800 text-3xl"
         data-aos="fade-up"
         data-aos-duration="800"
       >
