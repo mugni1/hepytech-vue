@@ -217,7 +217,9 @@
           data-aos-duration="1000"
           class="h-full w-full md:w-4/12 flex flex-wrap justify-center mb-10"
         >
-          <div class="w-full text-center mb-8 mx-5 text-3xl font-bold mt-2">
+          <div
+            class="w-full text-center mb-8 mx-5 text-3xl font-bold mt-2 text-slate-800"
+          >
             Get in touch with us
           </div>
           <div class="w-full flex justify-center gap-5">
