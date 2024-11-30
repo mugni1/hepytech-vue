@@ -16,7 +16,7 @@
       <h1
         class="mx-auto font-semibold text-xl w-full text-center mb-5 text-slate-800"
       >
-        UPDATE ABOUT
+        CREATE TRUSTED BRAND
       </h1>
       <div class="w-full py-2">
         <label for="" class="text-slate-700 font-semibold">
@@ -45,7 +45,7 @@
           class="py-2 px-5 bg-purple-600 rounded-lg shadow-md text-white font-semibold"
           :disabled="useTrustedStore().loadingButton"
         >
-          <span v-if="useTrustedStore().loadingButton == false">Update</span>
+          <span v-if="useTrustedStore().loadingButton == false">Create</span>
           <span v-if="useTrustedStore().loadingButton == true">Loading</span>
         </button>
         <button
@@ -58,6 +58,62 @@
     </form>
   </section>
   <!-- END FORM CREATE  -->
+
+  <!-- FORM UPDATE -->
+  <section
+    v-if="useTrustedStore().formUpdate == true"
+    class="fixed bg-slate-600 bg-opacity-50 flex items-center justify-center w-full h-screen z-50"
+  >
+    <form
+      data-aos="zoom-in"
+      @submit.prevent="useTrustedStore().updateToDatabase()"
+      class="container w-11/12 md:w-4/12 h-5/6 relative bg-white rounded-xl shadow-lg p-5 overflow-y-scroll scrollbar-hide border-2 border-slate-400"
+    >
+      <h1
+        class="mx-auto font-semibold text-xl w-full text-center mb-5 text-slate-800"
+      >
+        UPDATE TRUSTED BRAND
+      </h1>
+      <div class="w-full py-2">
+        <label for="" class="text-slate-700 font-semibold">
+          Link Brand
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="text"
+          placeholder="https://facebook.com"
+          v-model="useTrustedStore().linkUpdate"
+        />
+      </div>
+      <div class="w-full py-2">
+        <label for="image" class="font-semibold text-slate-700">
+          Image
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="file"
+          id="image"
+          @change="useTrustedStore().imageChange($event)"
+        />
+      </div>
+      <div class="w-full py-2 flex gap-5">
+        <button
+          class="py-2 px-5 bg-purple-600 rounded-lg shadow-md text-white font-semibold"
+          :disabled="useTrustedStore().loadingButton"
+        >
+          <span v-if="useTrustedStore().loadingButton == false">Update</span>
+          <span v-if="useTrustedStore().loadingButton == true">Loading</span>
+        </button>
+        <button
+          class="py-2 px-5 bg-slate-500 text-white border rounded-lg shadow-md font-semibold"
+          @click="useTrustedStore().formUpdate = false"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </section>
+  <!-- END FORM UPDATE  -->
 
   <!-- MAIN -->
   <main
@@ -139,6 +195,9 @@
             </td>
             <td class="text-center">
               <button
+                @click="
+                  useTrustedStore().dataFormUpdate(index, item.id, item.link)
+                "
                 class="p-2 text-white rounded-lg shadow-md hover:bg-purple-800 bg-purple-600"
               >
                 <svg

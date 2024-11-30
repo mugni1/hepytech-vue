@@ -13,9 +13,13 @@ export const useTrustedStore = defineStore("trusted", {
     formCreate: false,
     formUpdate: false,
 
-    // MODEL FOR FORM CREATE
+    // MODEL FOR FORM CREATE and FORM UPDATE
     linkCreate: null,
-    imageCreate: null,
+    image: null,
+    // MODEL FOR FORM UPDATE
+    linkUpdate: null,
+    indexUpdate: null,
+    idUpdate: null,
 
     // LIST DATA TRUSTED
     trustedList: null,
@@ -55,7 +59,7 @@ export const useTrustedStore = defineStore("trusted", {
           "Content-Type": "multipart/form-data",
         },
         data: {
-          image: this.imageCreate,
+          image: this.image,
           link: this.linkCreate,
         },
       })
@@ -71,13 +75,59 @@ export const useTrustedStore = defineStore("trusted", {
           });
         })
         .catch((error) => {
-          console.log(error);
+          swal({
+            icon: "error",
+            title: "Error",
+            text: "Try Again Later",
+          });
         })
         .finally(() => {
           this.loadingButton = false;
         });
     },
-    updateToDatabase() {},
+    dataFormUpdate(index, id, link) {
+      this.linkUpdate = link;
+      this.indexUpdate = index;
+      this.idUpdate = id;
+      this.formUpdate = true;
+    },
+    updateToDatabase() {
+      this.loadingButton = true;
+      axios({
+        method: "post",
+        url: "http://localhost:8000/api/trusted/" + this.idUpdate + "/update",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "multipart/form-data",
+        },
+        data: {
+          image: this.image,
+          link: this.linkUpdate,
+          _method: "put",
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            title: "Success update",
+          }).then((isTrue) => {
+            if (isTrue) {
+              this.formUpdate = false;
+              this.trustedList[this.indexUpdate] = response.data.data;
+            }
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Error",
+            text: "Try Again Later",
+          });
+        })
+        .finally(() => {
+          this.loadingButton = false;
+        });
+    },
     deleteFromDatabase(index, id) {
       swal({
         icon: "warning",
@@ -112,7 +162,7 @@ export const useTrustedStore = defineStore("trusted", {
       });
     },
     imageChange(e) {
-      this.imageCreate = e.target.files[0];
+      this.image = e.target.files[0];
     },
   },
 });
