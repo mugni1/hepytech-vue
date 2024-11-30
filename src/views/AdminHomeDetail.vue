@@ -10,6 +10,9 @@
   >
     <form
       data-aos="zoom-in"
+      @submit.prevent="
+        useHomeStore().updateToDatabase(useHomeStore().dataHomeDetail.id)
+      "
       class="container w-11/12 md:w-4/12 h-5/6 relative bg-white rounded-xl shadow-lg p-5 overflow-y-scroll scrollbar-hide border-2 border-slate-400"
     >
       <h1
@@ -73,8 +76,10 @@
       <div class="w-full py-2 flex gap-5">
         <button
           class="py-2 px-5 bg-purple-600 rounded-lg shadow-md text-white font-semibold"
+          :disabled="useHomeStore().loadingButton"
         >
-          Update
+          <span v-if="useHomeStore().loadingButton == false">Update</span>
+          <span v-if="useHomeStore().loadingButton == true">Loading</span>
         </button>
         <button
           class="py-2 px-5 bg-slate-500 text-white border rounded-lg shadow-md font-semibold"

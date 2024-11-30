@@ -1,10 +1,13 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import swal from "sweetalert";
+import router from "@/router";
 
 export const useHomeStore = defineStore("home", {
   state: () => ({
     // loading table
     loadingTable: true,
+    loadingButton: false,
     linkImage: "http://localhost/hepytech-api/public/storage/img/",
     userName: localStorage.getItem("name"),
 
@@ -49,10 +52,47 @@ export const useHomeStore = defineStore("home", {
           this.loadingTable = false;
         });
     },
-    updateToDatabase() {},
+    updateToDatabase(id) {
+      this.loadingButton = true;
+      axios({
+        method: "post",
+        url: `http://localhost:8000/api/home/${id}/update`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+        data: {
+          title: this.titleForm,
+          description: this.descriptionForm,
+          link_contac: this.linkContacForm,
+          link_job_vacancy: this.linkJobForm,
+          image: this.imageForm,
+          _method: "put",
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            title: "Success",
+          }).then((isTrue) => {
+            if (isTrue) {
+              this.formUpdate = false;
+              this.dataHomeDetail = response.data.data;
+            }
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Error",
+          });
+        })
+        .finally(() => {
+          this.loadingButton = false;
+        });
+    },
     imageChange(e) {
       this.imageForm = e.target.files[0];
-      console.log(this.imageForm);
     },
   },
 });
