@@ -102,7 +102,7 @@
           <li data-aos="fade-down" class="flex">
             <router-link
               class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
-              to="/admin/portfolio-list"
+              to="/admin/about"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

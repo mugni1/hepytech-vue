@@ -14,6 +14,7 @@ import AdminPortfolioList from "@/views/AdminPortfolioList.vue";
 import AdminPortfolioAdd from "@/views/AdminPortfolioAdd.vue";
 import AdminPortfolioEdit from "@/views/AdminPortfolioEdit.vue";
 import AdminHomeDetail from "@/views/AdminHomeDetail.vue";
+import AdminAboutDetail from "@/views/AdminAboutDetail.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -62,6 +63,8 @@ const routes = [
 
   // ADMIN HOME
   { path: "/admin/home", name: "homeDetail", component: AdminHomeDetail },
+  // ADMIN ABOUT
+  { path: "/admin/about", name: "aboutDetail", component: AdminAboutDetail },
 ];
 
 const router = createRouter({
