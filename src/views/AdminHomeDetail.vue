@@ -23,6 +23,7 @@
           class="w-full border outline-none rounded-md p-1 shadow-md"
           type="text"
           placeholder="Sample : Lorem ipsum dolor sit amet"
+          v-model="useHomeStore().titleForm"
         />
       </div>
       <div class="w-full py-2">
@@ -33,6 +34,7 @@
           class="w-full border outline-none rounded-md p-1 shadow-md"
           type="text"
           placeholder="https://facebook.com"
+          v-model="useHomeStore().linkContacForm"
         />
       </div>
       <div class="w-full py-2">
@@ -43,6 +45,7 @@
           class="w-full border outline-none rounded-md p-1 shadow-md"
           type="text"
           placeholder="https://facebook.com"
+          v-model="useHomeStore().linkJobForm"
         />
       </div>
       <div class="w-full py-2">
@@ -53,6 +56,7 @@
           class="w-full border outline-none rounded-md p-1 shadow-md"
           type="file"
           id="image"
+          @change="useHomeStore().imageChange($event)"
         />
       </div>
       <div class="w-full py-2">
@@ -63,6 +67,7 @@
           class="w-full border rounded-lg shadow-md p-1 outline-none"
           id="description"
           rows="8"
+          v-model="useHomeStore().descriptionForm"
         ></textarea>
       </div>
       <div class="w-full py-2 flex gap-5">
@@ -101,14 +106,6 @@
 
       <!-- CARD  -->
       <div class="p-5 bg-white rounded-xl shadow-lg">
-        <!-- add news  -->
-
-        <!-- end add news -->
-
-        <!-- search  -->
-
-        <!-- end search  -->
-
         <!-- table news -->
         <table class="w-full">
           <!-- table heading  -->
@@ -127,7 +124,12 @@
           </tr>
           <!-- end loading  -->
           <!-- data  -->
-          <tr v-if="useHomeStore().loadingTable == false">
+          <tr
+            v-if="
+              useHomeStore().loadingTable == false &&
+              useHomeStore().dataHomeDetail != null
+            "
+          >
             <td class="w-3/12 text-center py-5 border-b">
               <img
                 :src="`${useHomeStore().linkImage}${
@@ -166,14 +168,16 @@
             </td>
           </tr>
           <!-- end data  -->
-          <!-- <tr
+          <!-- no data  -->
+          <tr
             v-if="
               useHomeStore().loadingTable == false &&
               useHomeStore().dataHomeDetail == null
             "
           >
-            <th colspan="7">No Data</th>
-          </tr> -->
+            <th class="pt-5 text-red-500 text-xl" colspan="7">No Data</th>
+          </tr>
+          <!-- end no data  -->
         </table>
         <!-- table news -->
       </div>
