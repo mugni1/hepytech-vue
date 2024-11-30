@@ -3,6 +3,62 @@
   <Sidebar />
   <!-- Sidebar  -->
 
+  <!-- FORM CREATE -->
+  <section
+    v-if="useTrustedStore().formCreate == true"
+    class="fixed bg-slate-600 bg-opacity-50 flex items-center justify-center w-full h-screen z-50"
+  >
+    <form
+      data-aos="zoom-in"
+      @submit.prevent="useTrustedStore().storeToDatabase()"
+      class="container w-11/12 md:w-4/12 h-5/6 relative bg-white rounded-xl shadow-lg p-5 overflow-y-scroll scrollbar-hide border-2 border-slate-400"
+    >
+      <h1
+        class="mx-auto font-semibold text-xl w-full text-center mb-5 text-slate-800"
+      >
+        UPDATE ABOUT
+      </h1>
+      <div class="w-full py-2">
+        <label for="" class="text-slate-700 font-semibold">
+          Link Brand
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="text"
+          placeholder="https://facebook.com"
+          v-model="useTrustedStore().linkCreate"
+        />
+      </div>
+      <div class="w-full py-2">
+        <label for="image" class="font-semibold text-slate-700">
+          Image
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="file"
+          id="image"
+          @change="useTrustedStore().imageChange($event)"
+        />
+      </div>
+      <div class="w-full py-2 flex gap-5">
+        <button
+          class="py-2 px-5 bg-purple-600 rounded-lg shadow-md text-white font-semibold"
+          :disabled="useTrustedStore().loadingButton"
+        >
+          <span v-if="useTrustedStore().loadingButton == false">Update</span>
+          <span v-if="useTrustedStore().loadingButton == true">Loading</span>
+        </button>
+        <button
+          class="py-2 px-5 bg-slate-500 text-white border rounded-lg shadow-md font-semibold"
+          @click="useTrustedStore().formCreate = false"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </section>
+  <!-- END FORM CREATE  -->
+
   <!-- MAIN -->
   <main
     class="w-full min-h-screen flex flex-wrap bg-gradient-to-br from-red-50 via-slate-50 to-yellow-50"
@@ -26,6 +82,7 @@
       <div class="p-5 bg-white rounded-xl shadow-lg">
         <!-- btn add  -->
         <button
+          @click="useTrustedStore().formCreate = true"
           class="px-5 py-2 text-white rounded-lg shadow-md hover:bg-green-800 bg-green-600"
         >
           Add Trusted
@@ -53,15 +110,17 @@
           <!-- end table heading  -->
           <!-- data  -->
           <tr v-for="(item, index) in useTrustedStore().trustedList">
-            <td>
+            <td class="py-5">
               <img
                 :src="`${useTrustedStore().linkImage}${item.image}`"
                 alt=""
+                class="w-full"
               />
             </td>
             <td class="text-center">{{ item.link }}</td>
             <td class="text-center p-2">
               <button
+                @click="useTrustedStore().deleteFromDatabase(index, item.id)"
                 class="p-2 text-white rounded-lg shadow-md hover:bg-red-800 bg-red-600"
               >
                 <svg
