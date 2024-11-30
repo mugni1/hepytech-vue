@@ -87,13 +87,13 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>Home</span>
@@ -106,13 +106,13 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>About</span>
@@ -121,17 +121,17 @@
           <li data-aos="fade-down" class="flex">
             <router-link
               class="flex w-full hover:bg-slate-400 hover:text-white rounded-s-lg items-center"
-              to="/admin/portfolio-list"
+              to="/admin/trusted"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>Trusted on</span>
@@ -144,13 +144,13 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>Contac us</span>
@@ -163,13 +163,13 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>Footer</span>
@@ -182,13 +182,13 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>News</span>
@@ -201,13 +201,13 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="8"
+                height="8"
                 viewBox="0 0 24 24"
-                class="fill-current"
+                class="fill-current mx-2"
               >
                 <path
-                  d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+                  d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2z"
                 ></path>
               </svg>
               <span>Portfolio</span>
