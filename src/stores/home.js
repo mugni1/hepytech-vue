@@ -14,7 +14,7 @@ export const useHomeStore = defineStore("home", {
     // form update
     formUpdate: false,
     // Home Detail
-    dataHomeDetail: null,
+    dataHomeDetail: "",
 
     // DATA FORM
     titleForm: null,

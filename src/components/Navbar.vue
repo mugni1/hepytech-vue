@@ -40,13 +40,6 @@
           <li>
             <router-link
               class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
-              to="/career"
-              >Career</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              class="px-2 py-1 hover:bg-purple-700 hover:text-white w-full block rounded-lg transition-all"
               to="/hepynews"
               >HepyNews</router-link
             >
@@ -141,24 +134,6 @@
                   d="M16 3H8c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h8c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM2 7v10c0 1.103.897 2 2 2V5c-1.103 0-2 .897-2 2zm18-2v14c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2z"
                 ></path></svg
               >Portfolio</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              class="ps-2 py-2 hover:bg-purple-700 hover:text-white w-full flex items-center gap-1 transition-all"
-              to="/career"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                class="fill-current"
-              >
-                <path d="M7 14.001h2v2H7z"></path>
-                <path
-                  d="M19 2h-8a2 2 0 0 0-2 2v6H5c-1.103 0-2 .897-2 2v9a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2zM5 20v-8h6v8H5zm9-12h-2V6h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"
-                ></path></svg
-              >Career</router-link
             >
           </li>
           <li>
