@@ -37,5 +37,46 @@ export const useFooterStore = defineStore("footer", {
           this.loadingTable = false;
         });
     },
+    updateToDatabase(id) {
+      this.loadingButton = true;
+      axios({
+        method: "post",
+        url: "http://localhost:8000/api/footer/" + id + "/update",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        data: {
+          _method: "put",
+          brand: this.footerDetail.brand,
+          link_faq: this.footerDetail.link_faq,
+          link_youtube: this.footerDetail.link_youtube,
+          text_information: this.footerDetail.text_information,
+          address: this.footerDetail.address,
+          link_facebook: this.footerDetail.link_facebook,
+          link_instagram: this.footerDetail.link_instagram,
+          link_linkedin: this.footerDetail.link_linkedin,
+          copyright: this.footerDetail.copyright,
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            title: "Success update",
+          }).then((isTrue) => {
+            if (isTrue) {
+              this.formUpdate = false;
+            }
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Error, Please Try again later",
+          });
+        })
+        .finally(() => {
+          this.loadingButton = false;
+        });
+    },
   },
 });
