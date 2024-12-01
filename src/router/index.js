@@ -17,6 +17,7 @@ import AdminHomeDetail from "@/views/AdminHomeDetail.vue";
 import AdminAboutDetail from "@/views/AdminAboutDetail.vue";
 import AdminTrusted from "@/views/AdminTrusted.vue";
 import AdminContac from "@/views/AdminContac.vue";
+import AdminFooter from "@/views/AdminFooter.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -71,6 +72,8 @@ const routes = [
   { path: "/admin/trusted", name: "adminTrusted", component: AdminTrusted },
   // ADMIN CONTAC
   { path: "/admin/contac", name: "adminContac", component: AdminContac },
+  // ADMIN FOOTER
+  { path: "/admin/footer", name: "adminFooter", component: AdminFooter },
 ];
 
 const router = createRouter({
