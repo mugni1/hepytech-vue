@@ -38,5 +38,40 @@ export const useContacStore = defineStore("contac", {
           this.loadingTable = false;
         });
     },
+    updateToDatabase(id) {
+      this.loadingButton = true;
+      axios({
+        method: "post",
+        url: "http://localhost:8000/api/contac/" + id + "/update",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        data: {
+          facebook: this.contacDetail.facebook,
+          instagram: this.contacDetail.instagram,
+          x: this.contacDetail.x,
+          _method: "put",
+        },
+      })
+        .then((response) => {
+          swal({
+            icon: "success",
+            title: "Success update",
+          }).then((isTrue) => {
+            if (isTrue) {
+              this.formUpdate = false;
+            }
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Error, Please Try again later",
+          });
+        })
+        .finally(() => {
+          this.loadingButton = false;
+        });
+    },
   },
 });
