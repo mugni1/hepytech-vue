@@ -119,6 +119,7 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useNews } from "@/stores/news";
+import { useDashboardStore } from "@/stores/dashboard";
 
 export default {
   components: {
@@ -128,9 +129,11 @@ export default {
   setup() {
     return {
       useNews,
+      useDashboardStore,
     };
   },
   mounted() {
+    useDashboardStore().getMe();
     useNews().getNewsList();
     useNews().getInitialUser();
   },

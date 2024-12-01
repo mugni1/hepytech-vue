@@ -280,6 +280,7 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useFooterStore } from "@/stores/footer";
+import { useDashboardStore } from "@/stores/dashboard";
 
 export default {
   components: {
@@ -287,9 +288,10 @@ export default {
     AdminHeading,
   },
   setup() {
-    return { useFooterStore };
+    return { useFooterStore, useDashboardStore };
   },
   mounted() {
+    useDashboardStore().getMe();
     useFooterStore().getContacDetail();
   },
 };

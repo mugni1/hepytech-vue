@@ -197,6 +197,7 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useHomeStore } from "@/stores/home";
+import { useDashboardStore } from "@/stores/dashboard";
 
 export default {
   components: {
@@ -209,6 +210,7 @@ export default {
     };
   },
   mounted() {
+    useDashboardStore().getMe();
     useHomeStore().getHomeDetail();
   },
 };

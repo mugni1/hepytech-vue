@@ -194,6 +194,7 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useAboutStore } from "@/stores/about";
+import { useDashboardStore } from "@/stores/dashboard";
 
 export default {
   components: {
@@ -203,9 +204,11 @@ export default {
   setup() {
     return {
       useAboutStore,
+      useDashboardStore,
     };
   },
   mounted() {
+    useDashboardStore().getMe();
     useAboutStore().getAboutDetail();
   },
 };

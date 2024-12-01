@@ -166,6 +166,7 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useContacStore } from "@/stores/contac";
+import { useDashboardStore } from "@/stores/dashboard";
 
 export default {
   components: {
@@ -175,9 +176,11 @@ export default {
   setup() {
     return {
       useContacStore,
+      useDashboardStore,
     };
   },
   mounted() {
+    useDashboardStore().getMe();
     useContacStore().getContacDetail();
   },
 };

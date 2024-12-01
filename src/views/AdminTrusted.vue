@@ -237,6 +237,7 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useTrustedStore } from "@/stores/trusted";
+import { useDashboardStore } from "@/stores/dashboard";
 
 export default {
   components: {
@@ -244,9 +245,10 @@ export default {
     AdminHeading,
   },
   setup() {
-    return { useTrustedStore };
+    return { useTrustedStore, useDashboardStore };
   },
   mounted() {
+    useDashboardStore().getMe();
     useTrustedStore().getTrustedList();
   },
 };

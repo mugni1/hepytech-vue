@@ -116,6 +116,8 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { usePortfolioStore } from "@/stores/portfolio";
+import { useDashboardStore } from "@/stores/dashboard";
+
 export default {
   components: {
     Sidebar,
@@ -124,9 +126,11 @@ export default {
   setup() {
     return {
       usePortfolioStore,
+      useDashboardStore,
     };
   },
   mounted() {
+    useDashboardStore().getMe();
     usePortfolioStore().getInitialUserName();
     usePortfolioStore().getListPort();
   },
