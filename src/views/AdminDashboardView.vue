@@ -10,8 +10,8 @@
     >
       <!-- Heading  -->
       <AdminHeading
-        :name="useNews().nameUser"
-        :initialName="useNews().initialUser"
+        :name="useDashboardStore().userName"
+        :initialName="useDashboardStore().initialUserName"
       />
       <!-- Heading  -->
     </section>
@@ -23,6 +23,8 @@
 import AdminHeading from "@/components/AdminHeading.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { useNews } from "@/stores/news";
+import { useDashboardStore } from "@/stores/dashboard";
+import router from "@/router";
 
 export default {
   components: {
@@ -30,10 +32,10 @@ export default {
     AdminHeading,
   },
   setup() {
-    return { useNews };
+    return { useDashboardStore };
   },
   mounted() {
-    useNews().getInitialUser();
+    useDashboardStore().getMe();
   },
 };
 </script>

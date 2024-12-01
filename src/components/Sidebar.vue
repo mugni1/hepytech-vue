@@ -217,9 +217,9 @@
         <!-- end dropdown  -->
       </li>
       <li :class="`my-2 transition-all ${animateLinkLogout}`">
-        <router-link
-          to=""
-          class="flex items-center px-5 hover:bg-purple-500 hover:text-white py-1"
+        <button
+          @click="logout()"
+          class="flex items-center px-5 hover:bg-purple-500 active:bg-purple-800 hover:text-white py-1 w-full"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +233,7 @@
             ></path>
           </svg>
           <span>Logout</span>
-        </router-link>
+        </button>
       </li>
     </ul>
     <!-- END NAVIGASI LINK   -->
@@ -242,6 +242,9 @@
 </template>
 
 <script>
+import router from "@/router";
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -258,6 +261,40 @@ export default {
     nonactiveDatabase() {
       this.animateLinkLogout = null;
       this.showDropdown = false;
+    },
+    logout() {
+      swal({
+        icon: "warning",
+        title: "Warning",
+        dangerMode: true,
+        buttons: true,
+        text: "Are you sure you want to go out?",
+      }).then((isTrue) => {
+        if (isTrue) {
+          axios({
+            method: "get",
+            url: "http://localhost:8000/api/logout",
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          })
+            .then((response) => {
+              localStorage.clear();
+              swal({
+                icon: "success",
+                title: "Logout Success",
+              }).then((isTrue) => {
+                if (isTrue) {
+                  router.push({ name: "login" });
+                }
+              });
+            })
+            .catch((error) => {
+              localStorage.clear();
+              router.push({ name: "login" });
+            });
+        }
+      });
     },
   },
 };

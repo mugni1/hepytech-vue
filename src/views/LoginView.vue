@@ -128,6 +128,11 @@ export default {
     };
   },
 
+  mounted() {
+    if (localStorage.getItem("token")) {
+      router.push({ name: "adminDashboard" });
+    }
+  },
   methods: {
     showPw() {
       this.typePassword = false;
