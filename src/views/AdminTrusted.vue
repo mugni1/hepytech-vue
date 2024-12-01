@@ -145,16 +145,6 @@
         </button>
         <!-- end btn add  -->
 
-        <!-- search  -->
-        <div class="w-full py-5">
-          <input
-            type="search"
-            class="p-1 rounded-md shadow-md border outline-none w-5/12"
-            placeholder="Search ..."
-          />
-        </div>
-        <!-- end search  -->
-
         <!-- table news -->
         <table class="w-full">
           <!-- table heading  -->
@@ -164,7 +154,7 @@
             <th colspan="2" class="w-1/12 py-5 border-b">Action</th>
           </tr>
           <!-- end table heading  -->
-          <!-- data  -->
+          <!-- data no filter  -->
           <tr v-for="(item, index) in useTrustedStore().trustedList">
             <td class="py-5">
               <img
@@ -217,7 +207,7 @@
               </button>
             </td>
           </tr>
-          <!-- end data  -->
+          <!-- end data no filter-->
           <!-- loading  -->
           <tr v-if="useTrustedStore().loadingTable == true">
             <th colspan="7" class="text-blue-600 pt-5 text-xl">Loading...</th>
