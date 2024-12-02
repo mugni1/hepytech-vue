@@ -18,6 +18,7 @@ import AdminAboutDetail from "@/views/AdminAboutDetail.vue";
 import AdminTrusted from "@/views/AdminTrusted.vue";
 import AdminContac from "@/views/AdminContac.vue";
 import AdminFooter from "@/views/AdminFooter.vue";
+import UserView from "@/views/Admin/UserView.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -38,6 +39,8 @@ const routes = [
     component: AdminDashboardView,
   },
 
+  // ADMIN USER
+  { path: "/admin/user", name: "adminUser", component: UserView },
   // NEWS
   { path: "/admin/news-list", name: "adminNewsList", component: AdminNewsList },
   { path: "/admin/news-add", name: "adminNewsAdd", component: AdminNewsAdd },

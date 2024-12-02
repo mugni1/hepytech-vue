@@ -16,7 +16,7 @@
     <ul class="text-slate-600">
       <li class="my-2">
         <router-link
-          to=""
+          to="/admin/user"
           class="flex items-center px-5 hover:bg-purple-500 hover:text-white py-1"
         >
           <svg
