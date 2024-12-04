@@ -3,6 +3,10 @@
   <Sidebar />
   <!-- Sidebar  -->
 
+  <!-- HEADER  -->
+  <AdminHeading :name="userName" :initialName="initialUserName" />
+  <!-- END HEADER  -->
+
   <!-- FORM UPDATE -->
   <section
     v-if="useHomeStore().formUpdate"
@@ -94,13 +98,6 @@
 
   <!-- MAIN -->
   <main class="w-full min-h-screen flex flex-wrap bg-slate-100">
-    <!-- HEADER  -->
-    <AdminHeading
-      :name="useHomeStore().userName"
-      :initialName="useHomeStore().initialUserName"
-    />
-    <!-- END HEADER  -->
-
     <!-- CONTENT -->
     <section class="min-h-screen w-10/12 pt-20 ms-auto px-5">
       <!-- title  -->
@@ -208,6 +205,16 @@ export default {
     return {
       useHomeStore,
     };
+  },
+  data() {
+    return {
+      userName: localStorage.getItem("name"),
+    };
+  },
+  computed: {
+    initialUserName() {
+      return this.userName.substring(0, 1).toUpperCase();
+    },
   },
   mounted() {
     useDashboardStore().getMe();

@@ -19,11 +19,7 @@ export const useAboutStore = defineStore("about", {
     // DATA FOR FORM UPDATE
     imageForm: null,
   }),
-  getters: {
-    initialUserName() {
-      return this.userName.substring(0, 1).toUpperCase();
-    },
-  },
+  getters: {},
   actions: {
     getAboutDetail() {
       axios({

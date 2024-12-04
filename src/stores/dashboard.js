@@ -3,14 +3,8 @@ import axios from "axios";
 import { defineStore } from "pinia";
 
 export const useDashboardStore = defineStore("dashboard", {
-  state: () => ({
-    userName: localStorage.getItem("name"),
-  }),
-  getters: {
-    initialUserName() {
-      return this.userName.substring(0, 1).toUpperCase();
-    },
-  },
+  state: () => ({}),
+  getters: {},
   actions: {
     getMe() {
       if (localStorage.getItem("token") == null) {

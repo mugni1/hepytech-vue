@@ -9,10 +9,7 @@
       class="w-full h-20 bg-white flex justify-end items-center fixed z-0"
     >
       <!-- Heading  -->
-      <AdminHeading
-        :name="useDashboardStore().userName"
-        :initialName="useDashboardStore().initialUserName"
-      />
+      <AdminHeading :name="userName" :initialName="initialUserName" />
       <!-- Heading  -->
     </section>
     <!-- END CONTENT  -->
@@ -33,6 +30,16 @@ export default {
   },
   setup() {
     return { useDashboardStore };
+  },
+  data() {
+    return {
+      userName: localStorage.getItem("name"),
+    };
+  },
+  computed: {
+    initialUserName() {
+      return this.userName.substring(0, 1).toUpperCase();
+    },
   },
   mounted() {
     useDashboardStore().getMe();

@@ -23,11 +23,7 @@ export const useHomeStore = defineStore("home", {
     descriptionForm: null,
     imageForm: null,
   }),
-  getters: {
-    initialUserName() {
-      return this.userName.substring(0, 1).toUpperCase();
-    },
-  },
+  getters: {},
   actions: {
     getHomeDetail() {
       axios({
