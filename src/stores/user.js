@@ -25,7 +25,9 @@ export const useUserStore = defineStore("user", {
         },
       })
         .then((response) => {
-          this.listUser = response.data.data;
+          this.listUser = response.data.data.filter(
+            (item) => item.name != localStorage.getItem("name")
+          );
         })
         .catch((error) => {
           swal({

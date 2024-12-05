@@ -158,6 +158,16 @@
           <th colspan="6" class="pt-5 text-xl text-blue-600">Loading...</th>
         </tr>
         <!-- end loading table  -->
+        <!-- No data table  -->
+        <tr
+          v-if="
+            useUserStore().loadingTable == false &&
+            useUserStore().listUser.length < 1
+          "
+        >
+          <th colspan="6" class="pt-5 text-xl text-red-600">No Data</th>
+        </tr>
+        <!-- end n=No data table  -->
       </table>
       <!-- end table data  -->
     </div>
