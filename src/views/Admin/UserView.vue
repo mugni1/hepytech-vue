@@ -33,7 +33,7 @@
           class="w-full border outline-none rounded-md p-1 shadow-md"
           type="text"
           placeholder="Zharif Khaleed"
-          max="100"
+          maxlength="100"
           v-model="useUserStore().nameAdd"
           required
         />

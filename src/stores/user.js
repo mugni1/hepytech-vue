@@ -28,7 +28,11 @@ export const useUserStore = defineStore("user", {
           this.listUser = response.data.data;
         })
         .catch((error) => {
-          console.log(error);
+          swal({
+            icon: "error",
+            title: "Error",
+            text: error.response.data.message,
+          });
         })
         .finally(() => {
           this.loadingTable = false;
@@ -50,10 +54,18 @@ export const useUserStore = defineStore("user", {
         },
       })
         .then((response) => {
-          console.log(response);
+          this.getUserList();
+          swal({
+            icon: "success",
+            title: "Success",
+          });
         })
         .catch((error) => {
-          console.log(error);
+          swal({
+            icon: "error",
+            title: "Error",
+            text: error.response.data.message,
+          });
         })
         .finally(() => {
           this.loadingButton = false;
