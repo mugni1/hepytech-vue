@@ -69,7 +69,41 @@ export const useUserStore = defineStore("user", {
         })
         .finally(() => {
           this.loadingButton = false;
+          this.formAdd = false;
         });
+    },
+    deleteUser(id, name, index) {
+      swal({
+        icon: "warning",
+        title: "Warning",
+        text: `Apakah kamu yakin menghapus '${name}' ?`,
+        dangerMode: true,
+        buttons: true,
+      }).then((isTrue) => {
+        if (isTrue) {
+          axios({
+            method: "delete",
+            url: "http://localhost:8000/api/user/" + id + "/delete",
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          })
+            .then((response) => {
+              this.listUser.splice(index, 1);
+              swal({
+                icon: "success",
+                title: "Success",
+              });
+            })
+            .catch((error) => {
+              swal({
+                icon: "error",
+                title: "Error",
+                text: error.response.data.message,
+              });
+            });
+        }
+      });
     },
   },
 });

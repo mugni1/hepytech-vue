@@ -107,7 +107,7 @@
     <!-- end title  -->
 
     <!-- card  -->
-    <div class="bg-white p-5 rounded-lg shadow-lg">
+    <div class="bg-white p-5 rounded-lg shadow-lg mb-10">
       <!-- btn add  -->
       <button
         @click="useUserStore().formAdd = true"
@@ -138,6 +138,7 @@
           <td class="border-b text-center py-2">{{ item.role.name }}</td>
           <td class="border-b text-center">
             <button
+              @click="useUserStore().deleteUser(item.id, item.name, index)"
               class="p-2 my-2 bg-red-600 hover:bg-red-800 active:ring-2 ring-red-500 flex items-center justify-center rounded-lg mx-auto"
             >
               <box-icon name="trash-alt" color="#ffffff"></box-icon>
