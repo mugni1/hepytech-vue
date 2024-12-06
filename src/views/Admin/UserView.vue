@@ -96,6 +96,94 @@
   </section>
   <!-- END FORM CREATE  -->
 
+  <!-- FORM UPDATE -->
+  <section
+    v-if="useUserStore().formUpdate == true"
+    class="fixed bg-slate-600 bg-opacity-50 flex items-center justify-center w-full h-screen z-50"
+  >
+    <form
+      data-aos="zoom-in"
+      @submit.prevent="useUserStore().updateUser(useUserStore().idUpdate)"
+      class="container w-11/12 md:w-4/12 h-5/6 relative bg-white rounded-xl shadow-lg p-5 overflow-y-scroll scrollbar-hide border-2 border-slate-400"
+    >
+      <!-- title  -->
+      <h1
+        class="mx-auto font-semibold text-xl w-full text-center mb-5 text-slate-800"
+      >
+        UPDATE USER
+      </h1>
+      <!-- end title  -->
+      <!-- input  -->
+      <div class="w-full py-2">
+        <label class="text-slate-700 font-semibold">
+          Name
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="text"
+          placeholder="Zharif Khaleed"
+          maxlength="100"
+          v-model="useUserStore().nameUpdate"
+          required
+        />
+      </div>
+      <div class="w-full py-2">
+        <label class="text-slate-700 font-semibold">
+          Email
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="email"
+          placeholder="kingzharif@gmail.com"
+          v-model="useUserStore().emailUpdate"
+          required
+        />
+      </div>
+      <div class="w-full py-2">
+        <label class="text-slate-700 font-semibold">
+          Password
+        </label>
+        <input
+          class="w-full border outline-none rounded-md p-1 shadow-md"
+          type="text"
+          placeholder="zharif27234@#"
+          v-model="useUserStore().passwordUpdate"
+        />
+      </div>
+      <div class="w-full py-2">
+        <label class="text-slate-700 font-semibold">
+          Role
+        </label>
+        <select
+          v-model="useUserStore().role_idUpdate"
+          class="w-full border p-1 shadow-md rounded-md outline-none"
+          required
+        >
+          <option value="1">Admin</option>
+        </select>
+      </div>
+      <!-- edn input  -->
+      <!-- box btn  -->
+      <div class="w-full py-2 flex gap-5">
+        <button
+          class="py-2 px-5 bg-purple-600 rounded-lg shadow-md text-white font-semibold"
+          :disabled="useUserStore().loadingButton"
+        >
+          <span v-if="useUserStore().loadingButton == false">Update</span>
+          <span v-if="useUserStore().loadingButton == true">Loading</span>
+        </button>
+        <button
+          class="py-2 px-5 bg-slate-500 text-white border rounded-lg shadow-md font-semibold"
+          @click="useUserStore().formUpdate = false"
+        >
+          Cancel
+        </button>
+      </div>
+      <!-- edn box btn  -->
+    </form>
+  </section>
+  <!-- END FORM UPDATE  -->
+
   <!-- SECTION OF CONTENT  -->
   <section
     class="min-h-screen w-10/12 bg-gradient-to-br from-red-50 via-slate-100 to-yellow-50 ms-auto pt-20 px-5"
@@ -146,6 +234,14 @@
           </td>
           <td class="border-b text-center">
             <button
+              @click="
+                useUserStore().getDataForUpdate(
+                  item.id,
+                  item.name,
+                  item.email,
+                  item.role.id
+                )
+              "
               class="p-2 my-2 bg-purple-600 hover:bg-purple-800 active:ring-2 ring-purple-500 flex items-center justify-center rounded-lg mx-auto"
             >
               <box-icon name="pencil" color="#ffffff"></box-icon>

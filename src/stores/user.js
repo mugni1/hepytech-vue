@@ -4,15 +4,23 @@ import axios from "axios";
 export const useUserStore = defineStore("user", {
   state: () => ({
     formAdd: false,
+    formUpdate: false,
     loadingButton: false,
     loadingTable: true,
     listUser: [],
 
-    //data form add
+    // data form add
     nameAdd: null,
     emailAdd: null,
     passwordAdd: null,
     role_idAdd: null,
+
+    // data form update
+    idUpdate: null,
+    nameUpdate: null,
+    emailUpdate: null,
+    passwordUpdate: null,
+    role_idUpdate: null,
   }),
   getters: {},
   actions: {
@@ -72,6 +80,49 @@ export const useUserStore = defineStore("user", {
         .finally(() => {
           this.loadingButton = false;
           this.formAdd = false;
+        });
+    },
+    getDataForUpdate(id, name, email, role_id) {
+      this.formUpdate = true;
+      this.idUpdate = id;
+      this.nameUpdate = name;
+      this.emailUpdate = email;
+      this.role_idUpdate = role_id;
+    },
+    updateUser(id) {
+      this.loadingButton = true;
+      axios({
+        method: "post",
+        url: "http://localhost:8000/api/user/" + id + "/update",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        data: {
+          name: this.nameUpdate,
+          email: this.emailUpdate,
+          password: this.passwordUpdate,
+          role_id: this.role_idUpdate,
+          _method: "put",
+        },
+      })
+        .then((response) => {
+          this.getUserList();
+          swal({
+            icon: "success",
+            title: "Success",
+            text: response.data.message,
+          });
+        })
+        .catch((error) => {
+          swal({
+            icon: "error",
+            title: "Error",
+            text: error.response.data.message,
+          });
+        })
+        .finally(() => {
+          this.formUpdate = false;
+          this.loadingButton = false;
         });
     },
     deleteUser(id, name, index) {
